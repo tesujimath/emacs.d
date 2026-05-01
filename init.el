@@ -49,6 +49,9 @@
         ;; Assume :ensure t unless otherwise specified
         (setq use-package-always-ensure t))
 
+;; TODO this doesn't seem to have any effect:
+(setq elpaca-lock-file (expand-file-name "elpaca.lock" user-emacs-directory))
+
 ;; Packages that are built-in but need newer versions from MELPA
 (use-package transient :ensure t)
 ;; Wait for these until trying to install anything that depends on them
