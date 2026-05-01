@@ -4,14 +4,14 @@
 
 ;;; Code:
 
-;; Tabs and spacing
+;; Whitespace handling
 (setq-default indent-tabs-mode nil)
-(setq-default line-spacing 0.1)
 (use-package whitespace
   :ensure nil
   :custom
   (whitespace-style '(face tabs tab-mark trailing))
-  :hook (prog-mode . whitespace-mode))
+  :hook (prog-mode . whitespace-mode)
+  (before-save-hook . whitespace-cleanup))
 
 ;; Better undo
 ;; (use-package undo-fu
@@ -28,12 +28,13 @@
 ;;   :init (which-key-mode)
 ;;   :custom (which-key-idle-delay 0.5))
 
-;; Theme and font
+;; Appearance
 (use-package emacs
   :ensure nil
   :config
   (load-theme 'wombat :no-confirm)
   (set-face-attribute 'default nil :family "SF Mono" :foundry "nil" :slant 'normal :weight 'medium :height 100 :width 'normal))
+(setq-default line-spacing 0.1)
 
 ;; see https://protesilaos.com/emacs/ef-themes-pictures
 ;; (use-package ef-themes
@@ -47,4 +48,3 @@
 
 (provide 'init-quality-of-life)
 ;;; init-quality-of-life.el ends here
-
