@@ -55,9 +55,9 @@
 (elpaca-wait)
 
 ;; setup directory structure and load packages
-(defvar tesujimath-lisp-dir (expand-file-name "lisp" (file-name-directory load-file-name))
-  "tesujimath lisp directory.")
-(add-to-list 'load-path tesujimath-lisp-dir)
+(defvar user-lisp-dir (expand-file-name "lisp" (file-name-directory load-file-name))
+  "user lisp directory.")
+(add-to-list 'load-path user-lisp-dir)
 
 ;; TODO
 ;; (require 'init-actions)

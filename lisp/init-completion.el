@@ -22,12 +22,15 @@
   :init (marginalia-mode))
 
 ;; consult replaces specific commands with richer versions
+(defun tesujimath/consult-ripgrep-at-point ()
+  (interactive)
+  (consult-ripgrep nil (thing-at-point 'symbol)))
 (use-package consult
   :bind (("C-s"   . consult-line)
          ("C-x b" . consult-buffer)
          ("M-y"   . consult-yank-pop)
          ("M-g g" . consult-goto-line)
-         ("M-s r" . consult-ripgrep)
+         ("M-s r" . tesujimath/consult-ripgrep-at-point)
          ("M-s f" . consult-find)
 	 ("C-c T" . consult-theme))
   :custom
