@@ -28,7 +28,8 @@
          ("M-y"   . consult-yank-pop)
          ("M-g g" . consult-goto-line)
          ("M-s r" . consult-ripgrep)
-         ("M-s f" . consult-find))
+         ("M-s f" . consult-find)
+	 ("C-c T" . consult-theme))
   :custom
   (consult-preview-key "M-."))
 

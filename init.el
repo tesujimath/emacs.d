@@ -1,3 +1,9 @@
+;; use host-specific customization
+(setq custom-file (expand-file-name
+                   (format "custom.%s.el" (car (split-string system-name "\\.")))
+                   user-emacs-directory))
+(load custom-file :no-error)
+
 (defvar elpaca-installer-version 0.12)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
@@ -38,10 +44,10 @@
 (elpaca `(,@elpaca-order))
 
 (elpaca elpaca-use-package
-  ;; Enable Elpaca support for use-package's :ensure keyword.
-  (elpaca-use-package-mode)
-  ;; Assume :ensure t unless otherwise specified
-  (setq use-package-always-ensure t))
+        ;; Enable Elpaca support for use-package's :ensure keyword.
+        (elpaca-use-package-mode)
+        ;; Assume :ensure t unless otherwise specified
+        (setq use-package-always-ensure t))
 
 ;; Packages that are built-in but need newer versions from MELPA
 (use-package transient :ensure t)
@@ -61,4 +67,4 @@
 (require 'init-org)
 ;; (require 'init-programming)
 ;; (require 'init-project)
-;; (require 'init-quality-of-life)
+(require 'init-quality-of-life)
