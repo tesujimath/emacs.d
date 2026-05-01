@@ -58,7 +58,7 @@
 ;; (require 'init-clojure)
 ;; (require 'init-completion)
 (require 'init-magit)
-;; (require 'init-org)
+(require 'init-org)
 ;; (require 'init-programming)
 ;; (require 'init-project)
 ;; (require 'init-quality-of-life)
