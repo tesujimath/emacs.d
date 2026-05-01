@@ -56,7 +56,7 @@
 ;; TODO
 ;; (require 'init-actions)
 ;; (require 'init-clojure)
-;; (require 'init-completion)
+(require 'init-completion)
 (require 'init-magit)
 (require 'init-org)
 ;; (require 'init-programming)
