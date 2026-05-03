@@ -6,16 +6,11 @@
 
 ;; Structured editing
 (use-package smartparens
-  :hook (prog-mode . smartparens-mode)
-  :config (require 'smartparens-config))
-
-;; (defun tesujimath/prog-mode-defaults ()
-;;   "Default coding hook, useful with any programming language."
-;;   (smartparens-mode +1))
-
-;; (defvar tesujimath/prog-mode-hook 'tesujimath/prog-mode-defaults)
-
-;; (add-hook 'prog-mode-hook (lambda () (run-hooks 'tesujimath/prog-mode-hook)))
+  :hook ((prog-mode . smartparens-mode)
+         (prog-mode . smartparens-strict-mode))
+  :config
+  (require 'smartparens-config)
+  (sp-use-paredit-bindings))
 
 ;; (use-package eglot
 ;;   :ensure nil  ; built-in since Emacs 29
