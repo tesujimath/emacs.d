@@ -10,7 +10,8 @@
 (use-package clj-refactor)
 (use-package flycheck-clj-kondo)
 
-(use-package cider :defer t)
+(use-package cider :defer t :after smartparens
+  :hook (cider-repl-mode . smartparens-mode))
 
 (defun tesujimath/lint-clj-project ()
   "Run clj-kondo --lint on the project and show results in a compilation buffer."
