@@ -46,5 +46,10 @@
 ;;   :init (doom-modeline-mode))
 
 
+;;; Global keybindings
+
+;; macOS standard for toggle-frame-fullscreen
+(keymap-global-set "C-s-f" #'toggle-frame-fullscreen)
+
 (provide 'init-quality-of-life)
 ;;; init-quality-of-life.el ends here
