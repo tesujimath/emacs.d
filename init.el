@@ -44,10 +44,10 @@
 (elpaca `(,@elpaca-order))
 
 (elpaca elpaca-use-package
-        ;; Enable Elpaca support for use-package's :ensure keyword.
-        (elpaca-use-package-mode)
-        ;; Assume :ensure t unless otherwise specified
-        (setq use-package-always-ensure t))
+  ;; Enable Elpaca support for use-package's :ensure keyword.
+  (elpaca-use-package-mode)
+  ;; Assume :ensure t unless otherwise specified
+  (setq use-package-always-ensure t))
 
 ;; TODO this doesn't seem to have any effect:
 (setq elpaca-lock-file (expand-file-name "elpaca.lock" user-emacs-directory))
@@ -64,6 +64,7 @@
 
 ;; TODO
 ;; (require 'init-actions)
+(require 'init-apheleia)
 (require 'init-clojure)
 (require 'init-completion)
 (require 'init-envrc)

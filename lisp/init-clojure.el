@@ -5,7 +5,14 @@
 ;;; Code:
 
 
-(use-package clojure-mode)
+(use-package clojure-mode
+  :after apheleia
+  :config
+  ;; Clojure autoformat using zprint
+  ;; zprint -c: read config from project if present
+  (push '(zprint . ("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")) apheleia-formatters)
+  (setf (alist-get 'clojure-mode apheleia-mode-alist) 'zprint))
+
 ;;(use-package clojure-ts-mode)
 (use-package clj-refactor)
 (use-package flycheck-clj-kondo)
@@ -31,12 +38,6 @@
 (defvar tesujimath/clojure-mode-hook 'tesujimath/clojure-mode-defaults)
 
 (add-hook 'clojure-mode-hook (lambda () (run-hooks 'tesujimath/clojure-mode-hook)))
-
-;; TODO needs init-apheleia
-;; Clojure autoformat using zprint
-;; zprint -c: read config from project if present
-;; (with-eval-after-load 'apheleia  (push '(zprint . ("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")) apheleia-formatters)
-;;                       (setf (alist-get 'clojure-mode apheleia-mode-alist) 'zprint))
 
 ;; (with-eval-after-load 'flycheck
 ;;   (require 'flycheck-clj-kondo))
