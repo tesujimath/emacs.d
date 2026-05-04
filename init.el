@@ -73,6 +73,7 @@
 (require 'init-envrc)
 (require 'init-lisp)
 (require 'init-magit)
+(require 'init-markdown)
 (require 'init-org)
 (require 'init-programming)
 ;; (require 'init-project)
