@@ -21,9 +21,11 @@
 ;;   (eglot-autoshutdown t)
 ;;   (eglot-confirm-server-initiated-edits nil))
 
-;; (use-package treesit-auto
-;;   :custom (treesit-auto-install 'prompt)
-;;   :config (global-treesit-auto-mode))
+(use-package treesit-auto
+  :custom (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
 
 (provide 'init-programming)
 ;;; init-programming.el ends here

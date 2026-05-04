@@ -13,7 +13,8 @@
   (push '(zprint . ("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")) apheleia-formatters)
   (setf (alist-get 'clojure-mode apheleia-mode-alist) 'zprint))
 
-;;(use-package clojure-ts-mode)
+(use-package clojure-ts-mode :after treesit-auto)
+
 (use-package clj-refactor)
 (use-package flycheck-clj-kondo)
 
