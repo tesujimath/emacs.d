@@ -10,7 +10,8 @@
          (prog-mode . smartparens-strict-mode))
   :config
   (require 'smartparens-config)
-  (sp-use-paredit-bindings))
+  (sp-use-paredit-bindings)
+  (keymap-set smartparens-mode-map "M-s" nil))  ; key-clash with my consult bindings
 
 ;; (use-package eglot
 ;;   :ensure nil  ; built-in since Emacs 29
