@@ -54,13 +54,16 @@
 
 ;; Packages that are built-in but need newer versions from MELPA
 (use-package transient :ensure t)
-;; Wait for these until trying to install anything that depends on them
-(elpaca-wait)
 
 ;; setup directory structure and load packages
 (defvar user-lisp-dir (expand-file-name "lisp" (file-name-directory load-file-name))
   "user lisp directory.")
 (add-to-list 'load-path user-lisp-dir)
+
+(require 'init-exec-path)
+
+;; Wait for the above before trying to install anything that depends it
+(elpaca-wait)
 
 ;; TODO
 ;; (require 'init-actions)
