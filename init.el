@@ -68,6 +68,7 @@
 ;; TODO
 ;; (require 'init-actions)
 (require 'init-apheleia)
+(require 'init-beancount)
 (require 'init-clojure)
 (require 'init-completion)
 (require 'init-envrc)
