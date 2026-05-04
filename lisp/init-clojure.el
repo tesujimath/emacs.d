@@ -4,25 +4,6 @@
 
 ;;; Code:
 
-
-(use-package clojure-mode
-  :after apheleia
-  :config
-  ;; Clojure autoformat using zprint
-  ;; zprint -c: read config from project if present
-  (push '(zprint . ("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")) apheleia-formatters)
-  (setf (alist-get 'clojure-mode apheleia-mode-alist) 'zprint
-        (alist-get 'clojure-ts-mode apheleia-mode-alist) 'zprint))
-
-(use-package clojure-ts-mode :after treesit-auto)
-
-(use-package clj-refactor)
-(use-package flycheck-clj-kondo)
-
-(use-package cider :defer t :after smartparens
-  :hook ((cider-repl-mode . smartparens-mode)
-         (cider-repl-mode . smartparens-strict-mode)))
-
 (defun tesujimath/lint-clj-project ()
   "Run clj-kondo --lint on the project and show results in a compilation buffer."
   (interactive)
@@ -35,11 +16,28 @@
   (yas-minor-mode 1) ; for adding require/use/import statements
   ;; This choice of keybinding leaves cider-macroexpand-1 unbound
   (cljr-add-keybindings-with-prefix "C-c C-m")
-  (local-set-key (kbd "C-c `") #'tesujimath/lint-clj-project))
+  (keymap-local-set "C-c `" #'tesujimath/lint-clj-project))
 
-(defvar tesujimath/clojure-mode-hook 'tesujimath/clojure-mode-defaults)
+(use-package clojure-mode
+  :after apheleia
+  :config
+  ;; Clojure autoformat using zprint
+  ;; zprint -c: read config from project if present
+  (push '(zprint . ("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")) apheleia-formatters)
+  (setf (alist-get 'clojure-mode apheleia-mode-alist) 'zprint)
+  :hook ((clojure-mode . tesujimath/clojure-mode-defaults)))
 
-(add-hook 'clojure-mode-hook (lambda () (run-hooks 'tesujimath/clojure-mode-hook)))
+(use-package clojure-ts-mode :after (clojure-mode treesit-auto)
+  :config
+  (setf (alist-get 'clojure-ts-mode apheleia-mode-alist) 'zprint)
+  :hook ((clojure-ts-mode . tesujimath/clojure-mode-defaults)))
+
+(use-package clj-refactor)
+(use-package flycheck-clj-kondo)
+
+(use-package cider :defer t :after smartparens
+  :hook ((cider-repl-mode . smartparens-mode)
+         (cider-repl-mode . smartparens-strict-mode)))
 
 ;; (with-eval-after-load 'flycheck
 ;;   (require 'flycheck-clj-kondo))
