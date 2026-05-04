@@ -74,6 +74,7 @@
 (require 'init-lisp)
 (require 'init-magit)
 (require 'init-markdown)
+(require 'init-nix)
 (require 'init-org)
 (require 'init-programming)
 ;; (require 'init-project)
