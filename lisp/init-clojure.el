@@ -19,18 +19,20 @@
   (keymap-local-set "C-c `" #'tesujimath/lint-clj-project))
 
 (use-package clojure-mode
-  :after apheleia
+  :after (apheleia eglot)
   :config
   ;; Clojure autoformat using zprint
   ;; zprint -c: read config from project if present
   (push '(zprint . ("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")) apheleia-formatters)
   (setf (alist-get 'clojure-mode apheleia-mode-alist) 'zprint)
-  :hook ((clojure-mode . tesujimath/clojure-mode-defaults)))
+  :hook ((clojure-mode . tesujimath/clojure-mode-defaults)
+         (clojure-mode . eglot-ensure)))
 
 (use-package clojure-ts-mode :after (clojure-mode treesit-auto)
   :config
   (setf (alist-get 'clojure-ts-mode apheleia-mode-alist) 'zprint)
-  :hook ((clojure-ts-mode . tesujimath/clojure-mode-defaults)))
+  :hook ((clojure-ts-mode . tesujimath/clojure-mode-defaults)
+         (clojure-ts-mode . eglot-ensure)))
 
 (use-package clj-refactor)
 (use-package flycheck-clj-kondo)
@@ -38,11 +40,6 @@
 (use-package cider :defer t :after smartparens
   :hook ((cider-repl-mode . smartparens-mode)
          (cider-repl-mode . smartparens-strict-mode)))
-
-;; (with-eval-after-load 'flycheck
-;;   (require 'flycheck-clj-kondo))
-
-
 
 (provide 'init-clojure)
 ;;; init-clojure.el ends here

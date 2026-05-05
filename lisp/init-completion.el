@@ -40,8 +40,8 @@
 (use-package corfu
   :custom
   (corfu-auto t)
-  (corfu-auto-delay 0.2)
-  (corfu-auto-prefix 2)
+  (corfu-auto-delay 0.3) ; increased from 0.2 in favour of eglot
+  (corfu-auto-prefix 3)  ; increased from 2 in favour of eglot
   (corfu-cycle t)
   (corfu-quit-no-match 'separator)
   :init (global-corfu-mode))
