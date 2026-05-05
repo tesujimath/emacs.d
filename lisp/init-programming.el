@@ -21,15 +21,38 @@
   ;; Keep eglot from being too eager — helps responsiveness
   (eglot-events-buffer-size 0)         ; disable events logging
   (eglot-sync-connect nil)             ; don't block on connect
-  )
+  :bind (:map eglot-mode-map
+              ;; Refactoring
+              ("C-c r r" . eglot-rename)
+              ("C-c r f" . eglot-format)
+              ("C-c r F" . eglot-format-buffer)
+              ("C-c r a" . eglot-code-actions)
+              ("C-c r o" . eglot-code-action-organize-imports)
+              ("C-c r q" . eglot-code-action-quickfix)
+              ("C-c r e" . eglot-code-action-extract)
+              ("C-c r i" . eglot-code-action-inline)
+              ("C-c r w" . eglot-code-action-rewrite)
+              ;; Navigation
+              ("C-c r d" . eglot-find-declaration)
+              ("C-c r i" . eglot-find-implementation)
+              ("C-c r t" . eglot-find-typeDefinition)
+              ;; Docs
+              ("C-c r h" . eldoc)
+              ;; Diagnostics
+              ("C-c r x" . flymake-show-project-diagnostics)
+              ("C-c r X" . flymake-show-buffer-diagnostics)))
+
+(use-package consult-eglot
+  :after (consult eglot)
+  :bind (:map eglot-mode-map
+              ("C-c r s" . consult-eglot-symbols)))
 
 (use-package flymake
   :ensure nil
   :hook (prog-mode . flymake-mode)
   :bind (:map flymake-mode-map
               ("M-n" . flymake-goto-next-error)
-              ("M-p" . flymake-goto-prev-error)
-              ("C-c ! l" . flymake-show-buffer-diagnostics)))
+              ("M-p" . flymake-goto-prev-error)))
 
 (use-package treesit-auto
   :custom (treesit-auto-install 'prompt)
