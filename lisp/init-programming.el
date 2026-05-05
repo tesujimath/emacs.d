@@ -6,12 +6,15 @@
 
 ;; Structured editing
 (use-package smartparens
-  :hook ((prog-mode . smartparens-mode)
-         (prog-mode . smartparens-strict-mode))
+  :hook (((prog-mode eval-expression-minibuffer-setup) . smartparens-mode)
+         ((prog-mode eval-expression-minibuffer-setup) . smartparens-strict-mode))
   :config
   (require 'smartparens-config)
   (sp-use-paredit-bindings)
   (keymap-set smartparens-mode-map "M-s" nil))  ; key-clash with my consult bindings
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package eglot
   :ensure nil  ; built-in since Emacs 29

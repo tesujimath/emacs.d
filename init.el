@@ -72,7 +72,6 @@
 (require 'init-clojure)
 (require 'init-completion)
 (require 'init-envrc)
-(require 'init-lisp)
 (require 'init-magit)
 (require 'init-markdown)
 (require 'init-nix)

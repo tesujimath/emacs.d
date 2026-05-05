@@ -24,15 +24,13 @@
   ;; Clojure autoformat using zprint
   ;; zprint -c: read config from project if present
   (push '(zprint . ("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")) apheleia-formatters)
-  (setf (alist-get 'clojure-mode apheleia-mode-alist) 'zprint)
-  :hook ((clojure-mode . tesujimath/clojure-mode-defaults)
-         (clojure-mode . eglot-ensure)))
+  (setf (alist-get 'clojure-mode apheleia-mode-alist) 'zprint))
 
 (use-package clojure-ts-mode :after (clojure-mode treesit-auto)
   :config
   (setf (alist-get 'clojure-ts-mode apheleia-mode-alist) 'zprint)
-  :hook ((clojure-ts-mode . tesujimath/clojure-mode-defaults)
-         (clojure-ts-mode . eglot-ensure)))
+  :hook (((clojure-mode clojure-ts-mode) . tesujimath/clojure-mode-defaults)
+         ((clojure-mode clojure-ts-mode) . eglot-ensure)))
 
 (use-package clj-refactor)
 (use-package flycheck-clj-kondo)
