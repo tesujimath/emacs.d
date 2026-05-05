@@ -5,8 +5,11 @@
 ;;; Code:
 
 (use-package exec-path-from-shell
-  :config (when (memq window-system '(mac ns x))
-            (exec-path-from-shell-initialize)))
+  :config
+  ;; macOS doesn't give us a good default path
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
+  )
 
 (provide 'init-exec-path)
 ;;; init-exec-path.el ends here

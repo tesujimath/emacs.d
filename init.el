@@ -65,6 +65,11 @@
 ;; Wait for the above before trying to install anything that depends it
 (elpaca-wait)
 
+;; extra path for LSPs, etc
+(let ((exec-path-nix (expand-file-name "~/.config/emacs/exec-path-nix.el")))
+  (when (file-exists-p exec-path-nix)
+    (load exec-path-nix)))
+
 ;; TODO
 ;; (require 'init-actions)
 (require 'init-apheleia)
