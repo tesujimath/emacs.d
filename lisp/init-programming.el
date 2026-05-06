@@ -37,10 +37,7 @@
               ("C-c r i" . eglot-find-implementation)
               ("C-c r t" . eglot-find-typeDefinition)
               ;; Docs
-              ("C-c r h" . eldoc)
-              ;; Diagnostics
-              ("C-c r x" . flymake-show-project-diagnostics)
-              ("C-c r X" . flymake-show-buffer-diagnostics)))
+              ("C-c r h" . eldoc)))
 
 (use-package consult-eglot
   :after (consult eglot)
@@ -52,7 +49,9 @@
   :hook (prog-mode . flymake-mode)
   :bind (:map flymake-mode-map
               ("M-n" . flymake-goto-next-error)
-              ("M-p" . flymake-goto-prev-error)))
+              ("M-p" . flymake-goto-prev-error)
+              ("C-c r x" . flymake-show-project-diagnostics)
+              ("C-c r X" . flymake-show-buffer-diagnostics)))
 
 (use-package treesit-auto
   :custom (treesit-auto-install 'prompt)
