@@ -32,7 +32,9 @@
          ("M-g g" . consult-goto-line)
          ("M-s r" . tesujimath/consult-ripgrep-at-point)
          ("M-s f" . consult-find)
-	 ("C-c T" . consult-theme))
+	 ("C-c T" . consult-theme)
+         ("C-c m" . consult-mark)
+         ("C-c M" . consult-global-mark))
   :custom
   (consult-preview-key "M-."))
 
