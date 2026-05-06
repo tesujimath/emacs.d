@@ -71,6 +71,7 @@
 (require 'init-beancount)
 (require 'init-clojure)
 (require 'init-completion)
+(require 'init-csv)
 (require 'init-envrc)
 (require 'init-magit)
 (require 'init-markdown)
