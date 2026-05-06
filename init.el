@@ -77,5 +77,5 @@
 (require 'init-nix)
 (require 'init-org)
 (require 'init-programming)
-;; (require 'init-project)
+(require 'init-project)
 (require 'init-quality-of-life)
