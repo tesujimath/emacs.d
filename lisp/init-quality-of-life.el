@@ -51,5 +51,8 @@
 ;; macOS standard for toggle-frame-fullscreen
 (keymap-global-set "C-s-f" #'toggle-frame-fullscreen)
 
+;; make the delete key sane
+(delete-selection-mode 1)
+
 (provide 'init-quality-of-life)
 ;;; init-quality-of-life.el ends here

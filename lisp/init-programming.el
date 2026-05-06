@@ -13,9 +13,6 @@
   (sp-use-paredit-bindings)
   (keymap-set smartparens-mode-map "M-s" nil))  ; key-clash with my consult bindings
 
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
-
 (use-package eglot
   :ensure nil  ; built-in since Emacs 29
   :custom

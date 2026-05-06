@@ -23,8 +23,8 @@
   :config
   ;; Clojure autoformat using zprint
   ;; zprint -c: read config from project if present
-  (push '(zprint . ("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")) apheleia-formatters)
-  (setf (alist-get 'clojure-mode apheleia-mode-alist) 'zprint))
+  (setf (alist-get 'zprint apheleia-formatters) '("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")
+        (alist-get 'clojure-mode apheleia-mode-alist) 'zprint))
 
 (use-package clojure-ts-mode :after (clojure-mode treesit-auto)
   :config
