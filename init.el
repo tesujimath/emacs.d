@@ -53,6 +53,7 @@
 (setq elpaca-lock-file (expand-file-name "elpaca.lock" user-emacs-directory))
 
 ;; Packages that are built-in but need newer versions from MELPA
+(use-package compat :ensure t)
 (use-package transient :ensure t)
 
 ;; setup directory structure and load packages
@@ -65,8 +66,7 @@
 ;; Wait for the above before trying to install anything that depends it
 (elpaca-wait)
 
-;; TODO
-;; (require 'init-actions)
+(require 'init-actions)
 (require 'init-apheleia)
 (require 'init-beancount)
 (require 'init-clojure)
