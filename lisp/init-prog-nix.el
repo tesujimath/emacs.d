@@ -1,4 +1,4 @@
-;;; init-nix --- setup nix
+;;; init-prog-nix --- setup nix
 
 ;;; Commentary:
 
@@ -12,5 +12,5 @@
   (add-to-list 'eglot-server-programs '(nix-ts-mode . ("nil")))
   :hook (nix-ts-mode . eglot-ensure))
 
-(provide 'init-nix)
-;;; init-nix.el ends here
+(provide 'init-prog-nix)
+;;; init-prog-nix.el ends here

@@ -1,4 +1,4 @@
-;;; init-rust --- setup rust
+;;; init-prog-rust --- setup rust
 
 ;;; Commentary:
 
@@ -14,5 +14,5 @@
   :hook ((rust-ts-mode . eglot-ensure)
          (rust-ts-mode . tesujimath/eglot-disable-rust-flymake)))
 
-(provide 'init-rust)
-;;; init-rust.el ends here
+(provide 'init-prog-rust)
+;;; init-prog-rust.el ends here

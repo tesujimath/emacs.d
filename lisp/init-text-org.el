@@ -1,4 +1,4 @@
-;;; init-org --- setup Org mode
+;;; init-text-org --- setup Org mode
 
 ;;; Commentary:
 
@@ -11,6 +11,7 @@
 
 (use-package org
   :ensure nil  ; use built-in, or pin to org ELPA below
+  :hook (org-mode . visual-line-mode)
   :custom
   (org-directory "~/mobile/notes")
   (org-agenda-files (file-expand-wildcards (concat org-directory "/*.org")))
@@ -52,5 +53,5 @@
 ;; Prettier org - may be an acquired taste
 ;; (use-package org-modern :hook (org-mode . org-modern-mode))
 
-(provide 'init-org)
-;;; init-org.el ends here
+(provide 'init-text-org)
+;;; init-text-org.el ends here

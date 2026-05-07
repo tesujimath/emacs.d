@@ -1,4 +1,4 @@
-;;; init-clojure --- setup Clojure
+;;; init-prog-clojure --- setup Clojure
 
 ;;; Commentary:
 
@@ -23,5 +23,5 @@
   :hook ((cider-repl-mode . smartparens-mode)
          (cider-repl-mode . smartparens-strict-mode)))
 
-(provide 'init-clojure)
-;;; init-clojure.el ends here
+(provide 'init-prog-clojure)
+;;; init-prog-clojure.el ends here

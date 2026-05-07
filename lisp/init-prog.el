@@ -1,4 +1,4 @@
-;;; init-programming --- setup programming modes
+;;; init-prog --- setup prog modes
 
 ;;; Commentary:
 
@@ -59,5 +59,11 @@
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
-(provide 'init-programming)
-;;; init-programming.el ends here
+;; programming-related modes
+(require 'init-prog-clojure)
+(require 'init-prog-nix)
+(require 'init-prog-rust)
+
+
+(provide 'init-prog)
+;;; init-prog.el ends here

@@ -1,4 +1,4 @@
-;;; init-beancount --- setup beancount
+;;; init-text-beancount --- setup beancount
 
 ;;; Commentary:
 
@@ -9,5 +9,5 @@
   :config
   (setf (alist-get 'bean-format apheleia-formatters) '("bean-format" "-c" "81" input)))
 
-(provide 'init-beancount)
-;;; init-beancount.el ends here
+(provide 'init-text-beancount)
+;;; init-text-beancount.el ends here
