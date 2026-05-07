@@ -54,5 +54,8 @@
 ;; make the delete key sane
 (delete-selection-mode 1)
 
+;; confirm exit
+(setq confirm-kill-emacs 'yes-or-no-p)
+
 (provide 'init-quality-of-life)
 ;;; init-quality-of-life.el ends here
