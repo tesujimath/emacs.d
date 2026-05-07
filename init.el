@@ -75,6 +75,7 @@
 (require 'init-envrc)
 (require 'init-magit)
 (require 'init-markdown)
+(require 'init-multiple-cursors)
 (require 'init-nix)
 (require 'init-org)
 (require 'init-programming)
