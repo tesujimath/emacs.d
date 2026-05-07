@@ -36,6 +36,7 @@
               ("C-c r d" . eglot-find-declaration)
               ("C-c r i" . eglot-find-implementation)
               ("C-c r t" . eglot-find-typeDefinition)
+              ("C-c r u" . xref-find-references)
               ;; Docs
               ("C-c r h" . eldoc)))
 
@@ -62,6 +63,7 @@
 ;; programming-related modes
 (require 'init-prog-clojure)
 (require 'init-prog-nix)
+(require 'init-prog-python)
 (require 'init-prog-rust)
 
 
