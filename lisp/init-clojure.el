@@ -23,8 +23,8 @@
   :config
   ;; Clojure autoformat using zprint
   ;; zprint -c: read config from project if present
-  (setf (alist-get 'zprint apheleia-formatters) '("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")
-        (alist-get 'clojure-mode apheleia-mode-alist) 'zprint))
+  (setf (alist-get 'clojure-mode apheleia-mode-alist) 'zprint
+        (alist-get 'zprint apheleia-formatters) '("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")))
 
 (use-package clojure-ts-mode :after (clojure-mode treesit-auto)
   :config
@@ -35,7 +35,7 @@
 (use-package clj-refactor)
 (use-package flycheck-clj-kondo)
 
-(use-package cider :defer t :after smartparens
+(use-package cider :defer t
   :hook ((cider-repl-mode . smartparens-mode)
          (cider-repl-mode . smartparens-strict-mode)))
 

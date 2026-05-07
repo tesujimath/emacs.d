@@ -5,7 +5,6 @@
 ;;; Code:
 
 (use-package embark
-  :after consult
   :bind (("C-."   . embark-act)
          ("C-;"   . embark-dwim)
          ("C-h B" . embark-bindings))

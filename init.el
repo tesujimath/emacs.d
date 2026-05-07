@@ -80,3 +80,4 @@
 (require 'init-programming)
 (require 'init-project)
 (require 'init-quality-of-life)
+(require 'init-rust)
