@@ -61,6 +61,7 @@
   (global-treesit-auto-mode))
 
 ;; programming-related modes
+(require 'init-prog-bash)
 (require 'init-prog-clojure)
 (require 'init-prog-nix)
 (require 'init-prog-python)
