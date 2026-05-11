@@ -46,10 +46,13 @@
 ;;   :init (doom-modeline-mode))
 
 
-;;; Global keybindings
+;;; macOS tweaks
+(when (eq system-type 'darwin)
+  ;; macOS keybinding for fullscreen
+  (keymap-global-set "C-s-f" #'toggle-frame-fullscreen)
 
-;; macOS standard for toggle-frame-fullscreen
-(keymap-global-set "C-s-f" #'toggle-frame-fullscreen)
+  ;; use non-native fullscreen, so Emacs stays in the main space and popup frames don't cause space transitions
+  (setq ns-use-native-fullscreen nil))
 
 ;; make the delete key sane
 (delete-selection-mode 1)
