@@ -70,6 +70,7 @@
 (require 'init-apheleia)
 (require 'init-completion)
 (require 'init-envrc)
+(require 'init-find)
 (require 'init-magit)
 (require 'init-multiple-cursors)
 (require 'init-prog)
