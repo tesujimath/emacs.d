@@ -61,7 +61,7 @@
   "user lisp directory.")
 (add-to-list 'load-path user-lisp-dir)
 
-(require 'init-exec-path)
+(require 'init-env)
 
 ;; Wait for the above before trying to install anything that depends it
 (elpaca-wait)
