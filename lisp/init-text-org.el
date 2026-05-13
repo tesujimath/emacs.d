@@ -42,6 +42,9 @@
      ("j" "Journal" entry (file+headline "Journal")
       "* %?\12Entered on %U\12  %i\12  %a")))
 
+  :config
+  (require 'org-tempo)
+
   :bind (("C-c a" . org-agenda)
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link)
