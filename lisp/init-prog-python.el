@@ -1,4 +1,4 @@
-;;; init-prog-python --- setup python
+;;; init-prog-python --- setup python  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

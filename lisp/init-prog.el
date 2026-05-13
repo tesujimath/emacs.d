@@ -1,4 +1,4 @@
-;;; init-prog --- setup prog modes
+;;; init-prog --- setup prog modes  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

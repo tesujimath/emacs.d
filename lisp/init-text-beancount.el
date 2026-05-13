@@ -1,4 +1,4 @@
-;;; init-text-beancount --- setup beancount
+;;; init-text-beancount --- setup beancount  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

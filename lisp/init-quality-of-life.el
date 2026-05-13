@@ -1,4 +1,4 @@
-;;; init-quality-of-life --- setup quality-of-life improvements
+;;; init-quality-of-life --- setup quality-of-life improvements  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

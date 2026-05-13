@@ -1,4 +1,4 @@
-;;; init-prog-rust --- setup rust
+;;; init-prog-rust --- setup rust  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

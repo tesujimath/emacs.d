@@ -1,4 +1,4 @@
-;;; init-actions --- setup embark and related actions
+;;; init-actions --- setup embark and related actions  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

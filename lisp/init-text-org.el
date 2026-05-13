@@ -1,13 +1,12 @@
-;;; init-text-org --- setup Org mode
+;;; init-text-org --- setup Org mode  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
 ;;; Code:
 
-"Hide all outline sublevels down to N."
-(defun tesujimath/outline-hide-sublevels-1 () (interactive) (outline-hide-sublevels 1))
-(defun tesujimath/outline-hide-sublevels-2 () (interactive) (outline-hide-sublevels 2))
-(defun tesujimath/outline-hide-sublevels-3 () (interactive) (outline-hide-sublevels 3))
+(defun tesujimath/outline-hide-sublevels-1 () "Hide all but L1 headings." (interactive) (outline-hide-sublevels 1))
+(defun tesujimath/outline-hide-sublevels-2 () "Hide all but L1-2 headings." (interactive) (outline-hide-sublevels 2))
+(defun tesujimath/outline-hide-sublevels-3 () "Hide all but L1-3 headings." (interactive) (outline-hide-sublevels 3))
 
 (use-package org
   :ensure nil  ; use built-in, or pin to org ELPA below

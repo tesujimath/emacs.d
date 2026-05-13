@@ -1,4 +1,4 @@
-;;; init-text-csv --- setup csv
+;;; init-text-csv --- setup csv  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

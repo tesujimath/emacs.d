@@ -1,4 +1,4 @@
-;;; init-undo --- setup undo
+;;; init-undo --- setup undo  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

@@ -1,4 +1,4 @@
-;;; init-prog-nix --- setup nix
+;;; init-prog-nix --- setup nix  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

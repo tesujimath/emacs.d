@@ -1,4 +1,4 @@
-;;; init-find --- setup packages related to finding things
+;;; init-find --- setup packages related to finding things  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

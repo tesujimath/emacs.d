@@ -1,4 +1,4 @@
-;;; init-completion --- setup completion
+;;; init-completion --- setup completion  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
@@ -21,8 +21,8 @@
 (use-package marginalia
   :init (marginalia-mode))
 
-;; consult replaces specific commands with richer versions
 (defun tesujimath/consult-ripgrep-at-point ()
+  "Consult ripgrep for symbol at point."
   (interactive)
   (consult-ripgrep nil (thing-at-point 'symbol)))
 (use-package consult

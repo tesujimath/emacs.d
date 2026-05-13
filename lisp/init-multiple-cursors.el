@@ -1,4 +1,4 @@
-;;; init-multiple-cursors --- setup multiple-cursors
+;;; init-multiple-cursors --- setup multiple-cursors  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

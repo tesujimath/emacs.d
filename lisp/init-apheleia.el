@@ -1,4 +1,4 @@
-;;; init-apheleia.el --- autoformat -*- lexical-binding: t -*-
+;;; init-apheleia.el --- autoformat  -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;;  Auto-format with apheleia
 ;;;

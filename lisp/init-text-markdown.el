@@ -1,4 +1,4 @@
-;;; init-text-markdown
+;;; init-text-markdown --- setup markdown support  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

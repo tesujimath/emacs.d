@@ -1,4 +1,4 @@
-;;; init-env --- setup environment
+;;; init-env --- setup environment  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

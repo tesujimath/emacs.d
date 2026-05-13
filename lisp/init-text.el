@@ -1,4 +1,4 @@
-;;; init-text --- setup text related modes
+;;; init-text --- setup text related modes  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

@@ -1,4 +1,4 @@
-;;; init-prog-clojure --- setup Clojure
+;;; init-prog-clojure --- setup Clojure  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

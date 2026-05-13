@@ -1,4 +1,4 @@
-;;; init-prog-bash --- setup bash
+;;; init-prog-bash --- setup bash  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

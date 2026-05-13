@@ -1,4 +1,4 @@
-;;; init-magit --- setup Magit
+;;; init-magit --- setup Magit  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
