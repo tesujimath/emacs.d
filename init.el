@@ -1,6 +1,12 @@
+;;; init.el --- Personal Emacs configuration  -*- lexical-binding: t -*-
+
+;;; Commentary:
+
+;;; Code:
+
 ;; use host-specific customization
 (setq custom-file (expand-file-name
-                   (format "custom.%s.el" (car (split-string system-name "\\.")))
+                   (format "custom.%s.el" (car (split-string (system-name) "\\.")))
                    user-emacs-directory))
 (load custom-file :no-error)
 
@@ -77,3 +83,7 @@
 (require 'init-project)
 (require 'init-quality-of-life)
 (require 'init-text)
+(require 'init-undo)
+
+(provide 'init)
+;;; init.el ends here
