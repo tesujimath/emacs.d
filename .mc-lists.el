@@ -3,6 +3,11 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        kill-region
+        org-beginning-of-line
+        org-end-of-line
+        org-self-insert-command
+        search-forward
         sp-backward-delete-char
         sp-delete-char
         ))
@@ -11,4 +16,5 @@
       '(
         consult-buffer
         describe-key
+        end-of-buffer
         ))
