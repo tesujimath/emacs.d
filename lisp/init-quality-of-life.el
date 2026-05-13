@@ -13,38 +13,31 @@
   :hook (prog-mode . whitespace-mode)
   (before-save-hook . whitespace-cleanup))
 
-;; Better undo
-;; (use-package undo-fu
-;;   :config
-;;   (global-unset-key (kbd "C-z"))
-;;   (global-set-key (kbd "C-z")   'undo-fu-only-undo)
-;;   (global-set-key (kbd "C-S-z") 'undo-fu-only-redo))
-
-;; (use-package undo-fu-session
-;;   :config (undo-fu-session-global-mode))
-
 ;; Visual guides
-;; (use-package which-key
-;;   :init (which-key-mode)
-;;   :custom (which-key-idle-delay 0.5))
+(use-package which-key
+  :ensure nil
+  :init (which-key-mode)
+  :custom (which-key-idle-delay 0.5))
 
 ;; Appearance
 (use-package emacs
   :ensure nil
   :config
   (load-theme 'wombat :no-confirm)
-  (set-face-attribute 'default nil :family "SF Mono" :foundry "nil" :slant 'normal :weight 'medium :height 100 :width 'normal))
+  (set-face-attribute 'default nil :family "SF Mono" :foundry "nil" :slant 'normal :weight 'medium :height 100 :width 'normal)
+  (display-time-mode 1))
 (setq-default line-spacing 0.1)
 
-;; see https://protesilaos.com/emacs/ef-themes-pictures
-;; (use-package ef-themes
-;;   :config
-;;   (load-theme 'ef-dark :no-confirm))
-
 ;; Better modeline
-;; (use-package doom-modeline
-;;   :init (doom-modeline-mode))
-
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom
+  (doom-modeline-time t)
+  :config
+  (set-face-attribute 'mode-line nil :height 120)
+  (set-face-attribute 'mode-line-inactive nil :height 120))
+;; doom-modeline requires nerd-icons
+(use-package nerd-icons)
 
 ;;; macOS tweaks
 (when (eq system-type 'darwin)
