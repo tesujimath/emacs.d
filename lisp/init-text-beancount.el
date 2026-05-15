@@ -4,7 +4,8 @@
 
 ;;; Code:
 
-(use-package beancount)
+(use-package beancount
+  :custom (beancount-number-alignment-column 79))
 
 (with-eval-after-load 'apheleia
   (setf (alist-get 'bean-format apheleia-formatters) '("bean-format" "-c" "81" input)))
