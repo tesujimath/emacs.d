@@ -14,6 +14,15 @@
   ;; zprint -c: read config from project if present
   (setf (alist-get 'zprint apheleia-formatters) '("zprint" "{:fn-map {\"f/attempt-all\" :binding, \"prop/for-all\" :binding}}")))
 
+(defun tesujimath/clojure-ts-insert-ns-new-file ()
+  "Insert namespace form for new Clojure files."
+  (when (and (buffer-file-name)
+             (= (point-min) (point-max)))
+    (clojure-ts-insert-ns-form)
+    (insert "\n\n")))
+
+(add-hook 'clojure-ts-mode-hook #'tesujimath/clojure-ts-insert-ns-new-file)
+
 (use-package cider :defer t
   :hook ((cider-repl-mode . smartparens-mode)
          (cider-repl-mode . smartparens-strict-mode)))
