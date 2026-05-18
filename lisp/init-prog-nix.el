@@ -11,8 +11,7 @@
   :hook (nix-ts-mode . eglot-ensure))
 
 (with-eval-after-load 'apheleia
-  (dolist (mode '(nix-mode nix-ts-mode))
-    (setf (alist-get mode apheleia-mode-alist) 'nixpkgs-fmt))
+  (setf (alist-get 'nix-ts-mode apheleia-mode-alist) 'nixpkgs-fmt)
   (setf (alist-get 'nixpkgs-fmt apheleia-formatters) '("nixpkgs-fmt")))
 
 (provide 'init-prog-nix)

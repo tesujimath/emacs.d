@@ -11,8 +11,7 @@
   :hook ((python-ts-mode . eglot-ensure)))
 
 (with-eval-after-load 'apheleia
-  (dolist (mode '(python-mode python-ts-mode))
-    (setf (alist-get mode apheleia-mode-alist) 'ruff))
+  (setf (alist-get 'python-ts-mode apheleia-mode-alist) 'ruff)
   (setf (alist-get 'ruff apheleia-formatters) '("ruff" "format" "-")))
 
 (provide 'init-prog-python)
