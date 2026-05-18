@@ -34,7 +34,8 @@
          ("M-s f" . consult-find)
 	 ("C-c T" . consult-theme)
          ("C-c m" . consult-mark)
-         ("C-c M" . consult-global-mark))
+         ("C-c M" . consult-global-mark)
+         ("C-c r s" . consult-imenu))
   :custom
   (consult-preview-key "M-."))
 

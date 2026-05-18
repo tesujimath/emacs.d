@@ -43,7 +43,7 @@
 (use-package consult-eglot
   :after (consult eglot)
   :bind (:map eglot-mode-map
-              ("C-c r s" . consult-eglot-symbols)))
+              ("C-c r S" . consult-eglot-symbols)))
 
 (use-package flymake
   :ensure nil
