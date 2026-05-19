@@ -25,12 +25,16 @@
   :config
   (load-theme 'wombat :no-confirm)
   (set-face-attribute 'default nil :family "SF Mono" :foundry "nil" :slant 'normal :weight 'medium :height 100 :width 'normal)
-  (display-time-mode 1))
+  (display-time-mode 1)
+  :custom
+  (fill-column 120))
 (setq-default line-spacing 0.1)
 
 ;; Better modeline
 (use-package doom-modeline
-  :init (doom-modeline-mode 1)
+  :init
+  (doom-modeline-mode 1)
+  (column-number-mode 1)
   :custom
   (doom-modeline-time t)
   :config

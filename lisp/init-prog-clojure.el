@@ -5,7 +5,9 @@
 ;;; Code:
 
 (use-package clojure-ts-mode
-  :hook ((clojure-ts-mode . eglot-ensure)))
+  :hook ((clojure-ts-mode . eglot-ensure))
+  :custom
+  (clojure-ts-docstring-fill-column 120))
 
 (with-eval-after-load 'apheleia
   (setf (alist-get 'clojure-ts-mode apheleia-mode-alist) 'zprint)
