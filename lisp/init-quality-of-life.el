@@ -4,6 +4,14 @@
 
 ;;; Code:
 
+;; ace-window selection
+(use-package ace-window
+  :bind ("M-o" . ace-window)
+  :config
+  (set-face-attribute 'aw-leading-char-face nil
+                      :height 300    ; 3x normal size
+                      :weight 'bold))
+
 ;; Whitespace handling
 (setq-default indent-tabs-mode nil)
 (use-package whitespace
