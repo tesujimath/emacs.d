@@ -8,7 +8,7 @@
 (setq custom-file (expand-file-name
                    (format "custom.%s.el" (car (split-string (system-name) "\\.")))
                    user-emacs-directory))
-(load custom-file :no-error)
+(add-hook 'after-init-hook (lambda() (load custom-file :no-error)))
 
 (defvar elpaca-installer-version 0.12)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
