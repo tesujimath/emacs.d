@@ -57,7 +57,10 @@
   (keymap-global-set "C-s-f" #'toggle-frame-fullscreen)
 
   ;; use non-native fullscreen, so Emacs stays in the main space and popup frames don't cause space transitions
-  (setq ns-use-native-fullscreen nil))
+  (setq ns-use-native-fullscreen nil)
+
+  ;; use open instead of the default which seems to be xdg-open
+  (setq dired-guess-shell-alist-user '((".*" "open"))))
 
 ;; make the delete key sane
 (delete-selection-mode 1)
