@@ -82,9 +82,9 @@
 (require 'init-prog)
 (require 'init-project)
 (require 'init-quality-of-life)
-(require 'init-term)
 (require 'init-text)
 (require 'init-undo)
+(require 'init-vterm)
 
 (provide 'init)
 ;;; init.el ends here
