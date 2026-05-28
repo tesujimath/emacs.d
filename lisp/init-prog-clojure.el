@@ -7,7 +7,8 @@
 (use-package clojure-ts-mode
   :hook ((clojure-ts-mode . eglot-ensure))
   :custom
-  (clojure-ts-docstring-fill-column 120))
+  (clojure-ts-docstring-fill-column 120)
+  (clojure-ts-directory-prefixes '("^\\(?:[^/]+/\\)*clj[csxd]*/" "src/")))
 
 (with-eval-after-load 'apheleia
   (dolist (mode '(clojure-mode clojure-ts-mode))
