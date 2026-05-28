@@ -7,9 +7,16 @@
         org-beginning-of-line
         org-end-of-line
         org-self-insert-command
+        org-shiftmetaleft
         search-forward
+        sp-backward-barf-sexp
         sp-backward-delete-char
+        sp-backward-kill-word
         sp-delete-char
+        sp-forward-barf-sexp
+        sp-forward-slurp-sexp
+        sp-kill-hybrid-sexp
+        sp-kill-word
         ))
 
 (setq mc/cmds-to-run-once
