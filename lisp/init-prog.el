@@ -63,6 +63,7 @@
 ;; programming-related modes
 (require 'init-prog-bash)
 (require 'init-prog-clojure)
+(require 'init-prog-fennel)
 (require 'init-prog-fsharp)
 (require 'init-prog-nix)
 (require 'init-prog-python)
