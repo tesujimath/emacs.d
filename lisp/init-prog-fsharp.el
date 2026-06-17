@@ -5,7 +5,8 @@
 ;;; Code:
 
 (use-package fsharp-ts-mode
-  :vc (:url "https://github.com/bbatsov/fsharp-ts-mode" :rev :newest))
+  :ensure (:host github
+                 :repo "bbatsov/fsharp-ts-mode"))
 
 (provide 'init-prog-fsharp)
 ;;; init-prog-fsharp.el ends here
