@@ -3,7 +3,9 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        delete-horizontal-space
         kill-region
+        mark-sexp
         org-beginning-of-line
         org-end-of-line
         org-self-insert-command
