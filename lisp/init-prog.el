@@ -73,6 +73,7 @@
 (require 'init-prog-nix)
 (require 'init-prog-python)
 (require 'init-prog-rust)
+(require 'init-prog-typescript)
 
 
 (provide 'init-prog)

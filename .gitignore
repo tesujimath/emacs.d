@@ -37,3 +37,4 @@ eln-cache/
 /bookmarks
 /undo-fu-session/
 /multisession/
+/eglot-typescript-preset/
