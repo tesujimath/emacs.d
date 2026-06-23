@@ -19,8 +19,8 @@
   (eglot-autoshutdown t)
   (eglot-confirm-server-initiated-edits nil)
   ;; Keep eglot from being too eager — helps responsiveness
-  (eglot-events-buffer-size 0)         ; disable events logging
-  (eglot-sync-connect nil)             ; don't block on connect
+  (eglot-events-buffer-config '(:size 0))  ; disable events logging
+  (eglot-sync-connect nil)                 ; don't block on connect
   :bind (:map eglot-mode-map
               ;; Refactoring
               ("C-c r r" . eglot-rename)
@@ -39,6 +39,11 @@
               ("C-c r u" . xref-find-references)
               ;; Docs
               ("C-c r h" . eldoc)))
+
+(use-package eglot-booster
+  :ensure (:host github :repo "jdtsmith/eglot-booster")
+  :after eglot
+  :config (eglot-booster-mode))
 
 (use-package consult-eglot
   :after (consult eglot)
