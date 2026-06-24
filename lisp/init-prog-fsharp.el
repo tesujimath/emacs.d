@@ -7,7 +7,11 @@
 (use-package fsharp-ts-mode
   :ensure (:host github :repo "bbatsov/fsharp-ts-mode")
   :config
+  (require 'fsharp-ts-eglot)
   (add-to-list 'eglot-server-programs '(fsharp-ts-mode . ("fsautocomplete")))
+  :custom
+  ;; use globally installed FsAutoComplete
+  (fsharp-ts-eglot-server-install-dir nil)
   :hook ((fsharp-ts-mode . eglot-ensure)
          (fsharp-ts-mode . fsharp-ts-repl-minor-mode)))
 
