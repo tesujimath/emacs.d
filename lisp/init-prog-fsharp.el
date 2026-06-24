@@ -14,7 +14,7 @@
 (with-eval-after-load 'apheleia
   (setf (alist-get 'fsharp-ts-mode apheleia-mode-alist) 'fantomas)
   ;; F# autoformat using fantomas
-  (setf (alist-get 'fantomas apheleia-formatters) '("dotnet" "fantomas" input "--out" output)))
+  (setf (alist-get 'fantomas apheleia-formatters) '("fantomas" input "--out" output)))
 
 (provide 'init-prog-fsharp)
 ;;; init-prog-fsharp.el ends here
