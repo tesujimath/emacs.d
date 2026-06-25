@@ -55,7 +55,7 @@
   ;; Assume :ensure t unless otherwise specified
   (setq use-package-always-ensure t))
 
-;; TODO this doesn't seem to have any effect:
+;; ensure we use the locked package versions
 (setq elpaca-lock-file (expand-file-name "elpaca.lock" user-emacs-directory))
 
 ;; Packages that are built-in but need newer versions from MELPA
@@ -78,6 +78,7 @@
 (require 'init-envrc)
 (require 'init-find)
 (require 'init-magit)
+(require 'init-mistty)
 (require 'init-multiple-cursors)
 (require 'init-prog)
 (require 'init-project)
