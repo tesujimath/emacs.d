@@ -13,6 +13,12 @@
   (sp-use-paredit-bindings)
   (keymap-set smartparens-mode-map "M-s" nil))  ; key-clash with my consult bindings
 
+;; ensure ' doesn't give us paired quotes in minibuffer
+;; the depth 100 forces it to run after other stuff
+(add-hook 'eval-expression-minibuffer-setup-hook
+          (lambda () (smartparens-mode -1))
+          100)
+
 (use-package eglot
   :ensure nil  ; built-in since Emacs 29
   :custom
