@@ -18,6 +18,7 @@
         sp-forward-barf-sexp
         sp-forward-slurp-sexp
         sp-kill-hybrid-sexp
+        sp-kill-region
         sp-kill-word
         ))
 
