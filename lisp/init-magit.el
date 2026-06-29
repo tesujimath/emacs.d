@@ -29,5 +29,7 @@
       ((:right-align t) (:sort <)))
      ("Path" 99 magit-repolist-column-path nil))))
 
+(use-package git-timemachine)
+
 (provide 'init-magit)
 ;;; init-magit.el ends here
