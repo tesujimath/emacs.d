@@ -73,6 +73,7 @@
 (elpaca-wait)
 
 (require 'init-actions)
+(require 'init-ai)
 (require 'init-apheleia)
 (require 'init-completion)
 (require 'init-envrc)
