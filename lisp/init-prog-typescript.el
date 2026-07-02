@@ -4,16 +4,17 @@
 
 ;;; Code:
 
-(use-package eglot-typescript-preset
-  :ensure (:host github
-                 :repo "mwolson/eglot-typescript-preset")
-  :custom
-  (eglot-typescript-preset-lsp-server 'rass)
-  (eglot-typescript-preset-rass-tools
-   '(typescript-language-server biome)))
-
 (use-package typescript-ts-mode
   :ensure nil
+  :config
+  (add-to-list 'eglot-server-programs
+               '((typescript-ts-mode :language-id "typescript") .
+                 ;; multiplexed LSP:
+                 ("rass" "tsbiome")
+                 ;; separate LSPs for testing:
+                 ;; ("typescript-language-server" "--stdio")
+                 ;; ("biome" "lsp-proxy")
+                 ))
   :hook ((typescript-ts-mode . eglot-ensure)))
 
 (with-eval-after-load 'apheleia
