@@ -7,6 +7,7 @@
         kill-region
         mark-sexp
         org-beginning-of-line
+        org-delete-char
         org-end-of-line
         org-self-insert-command
         org-shiftmetaleft
