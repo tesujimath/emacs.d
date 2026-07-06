@@ -8,7 +8,7 @@
   :ensure (:host github :repo "bbatsov/fsharp-ts-mode" :branch "repl-mistty-backend")
   :config
   (require 'fsharp-ts-eglot)
-  (add-to-list 'eglot-server-programs '(fsharp-ts-mode . ("fsautocomplete")))
+
   :custom
   ;; use globally installed FsAutoComplete
   (fsharp-ts-eglot-server-install-dir nil)
@@ -21,6 +21,9 @@
   (setf (alist-get 'fsharp-ts-mode apheleia-mode-alist) 'fantomas)
   ;; F# autoformat using fantomas
   (setf (alist-get 'fantomas apheleia-formatters) '("fantomas" input "--out" output)))
+
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '(fsharp-ts-mode . ("fsautocomplete"))))
 
 (provide 'init-prog-fsharp)
 ;;; init-prog-fsharp.el ends here

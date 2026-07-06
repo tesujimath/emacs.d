@@ -46,11 +46,6 @@
               ;; Docs
               ("C-c r h" . eldoc)))
 
-(use-package eglot-booster
-  :ensure (:host github :repo "jdtsmith/eglot-booster")
-  :after eglot
-  :config (eglot-booster-mode))
-
 (use-package consult-eglot
   :after (consult eglot)
   :bind (:map eglot-mode-map
