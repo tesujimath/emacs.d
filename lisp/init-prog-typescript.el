@@ -18,10 +18,43 @@
                '((typescript-ts-mode :language-id "typescript") .
                  ;; multiplexed LSP:
                  ("rass" "tsbiome")
+                 ;;(eglot-deno-biome "rass" "deno-biome")
                  ;; separate LSPs for testing:
-                 ;; ("typescript-language-server" "--stdio")
+                 ;;(eglot-deno "deno" "lsp" "-L" "info")
                  ;; ("biome" "lsp-proxy")
-                 )))
+                 ))
+
+  (defclass eglot-deno-biome (eglot-lsp-server) ()
+    :documentation "A custom class for deno/biome LSP.")
+
+  (cl-defmethod eglot-initialization-options ((server eglot-deno-biome))
+    "Pass through required deno initialization options for SERVER."
+    ;; see https://github.com/joaotavora/rassumfrassum#configuring-individual-servers
+    ;; for option multiplexing
+    '(:rass
+      (:deno
+       (:enable t
+                :unstable t
+	        :typescript
+	        (:inlayHints
+	         (:variableTypes
+                  (:enabled t)
+	          :parameterTypes
+                  (:enabled t)))))))
+
+  (defclass eglot-deno (eglot-lsp-server) ()
+    :documentation "A custom class for deno lsp.")
+
+  (cl-defmethod eglot-initialization-options ((server eglot-deno))
+    "Passes through required deno initialization options"
+    '(:enable t
+              :unstable t
+	      :typescript
+	      (:inlayHints
+	       (:variableTypes
+                (:enabled t)
+	        :parameterTypes
+                (:enabled t))))))
 
 (provide 'init-prog-typescript)
 ;;; init-prog-typescript.el ends here
