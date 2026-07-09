@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        cycle-spacing
         delete-horizontal-space
         kill-region
         mark-sexp

@@ -68,5 +68,8 @@
 ;; confirm exit
 (setq confirm-kill-emacs 'yes-or-no-p)
 
+;; no backup files thanks
+(setq make-backup-files nil)
+
 (provide 'init-quality-of-life)
 ;;; init-quality-of-life.el ends here
