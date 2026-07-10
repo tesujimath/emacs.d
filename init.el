@@ -62,6 +62,9 @@
 (use-package compat :ensure t)
 (use-package transient :ensure t)
 
+;; utilities we'll use everywhere without waiting
+(use-package dash)
+
 ;; setup directory structure and load packages
 (defvar user-lisp-dir (expand-file-name "lisp" (file-name-directory load-file-name))
   "user lisp directory.")

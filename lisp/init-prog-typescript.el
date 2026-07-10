@@ -39,44 +39,41 @@
   (add-to-list 'eglot-server-programs
                '((deno-mode :language-id "typescript") .
                  ;; multiplexed LSP:
-                 ;;(eglot-deno-biome "rass" "deno-biome")
+                 ;;("rass" "deno-biome")
                  ;; separate LSPs for testing:
-                 ;; Alas the deno LSP simply doesn't work 😭
-                 ;; (eglot-deno "deno" "lsp" "-L" "info")
+                 ;; Alas the deno LSP simply doesn't work, even in 2.9.2 😭
+                 ;; ("deno" "lsp" "-L" "info")
                  ("biome" "lsp-proxy")
                  ))
 
-  (defclass eglot-deno-biome (eglot-lsp-server) ()
-    :documentation "A custom class for deno/biome LSP.")
+  (let ((typescript-workspace-configuration
+         '(:inlayHints
+           (:includeInlayParameterNameHints "all"
+                                            :includeInlayParameterNameHintsWhenArgumentMatchesName t
+                                            :includeInlayFunctionParameterTypeHints t
+                                            :includeInlayVariableTypeHints t
+                                            :includeInlayPropertyDeclarationTypeHints t
+                                            :includeInlayFunctionLikeReturnTypeHints t
+                                            :includeInlayEnumMemberValueHints t)))
 
-  (cl-defmethod eglot-initialization-options ((server eglot-deno-biome))
-    "Pass through required deno initialization options for SERVER."
-    ;; see https://github.com/joaotavora/rassumfrassum#configuring-individual-servers
-    ;; for option multiplexing
-    '(:rass
-      (:deno
-       (:enable t
-                :unstable t
-	        :typescript
-	        (:inlayHints
-	         (:variableTypes
-                  (:enabled t)
-	          :parameterTypes
-                  (:enabled t)))))))
+        ;; placeholder, not yet used, may not be quite right
+        (deno-workspace-configuration
+         '(:enable t
+                   :unstable t
+	           :typescript
+	           (:inlayHints
+	            (:variableTypes
+                     (:enabled t)
+	             :parameterTypes
+                     (:enabled t))))))
 
-  (defclass eglot-deno (eglot-lsp-server) ()
-    :documentation "A custom class for deno lsp.")
-
-  (cl-defmethod eglot-initialization-options ((server eglot-deno))
-    "Passes through required deno initialization options"
-    '(:enable t
-              :unstable t
-	      :typescript
-	      (:inlayHints
-	       (:variableTypes
-                (:enabled t)
-	        :parameterTypes
-                (:enabled t))))))
+    ;; Set typescript workspace configuration both with and without rass.
+    ;; See https://github.com/joaotavora/rassumfrassum#configuring-individual-servers
+    ;; for option multiplexing.
+    (setq-default eglot-workspace-configuration
+                  (-> (default-value 'eglot-workspace-configuration)
+                      (plist-put :typescript typescript-workspace-configuration)
+                      (plist-put :rass `(:typescript-language-server (:typescript ,typescript-workspace-configuration)))))))
 
 (provide 'init-prog-typescript)
 ;;; init-prog-typescript.el ends here
