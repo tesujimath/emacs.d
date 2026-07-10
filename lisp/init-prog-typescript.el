@@ -13,6 +13,9 @@
   :ensure nil
   :hook ((typescript-ts-mode . eglot-ensure)))
 
+(use-package add-node-modules-path
+  :hook ((typescript-ts-mode . add-node-modules-path)))
+
 (define-derived-mode deno-mode typescript-ts-mode "Deno"
   "Major mode for standalone Deno scripts, derived from `typescript-ts-mode'.")
 
@@ -22,7 +25,7 @@
   (setf (alist-get 'typescript-mode apheleia-mode-alist) 'biome)
   (setf (alist-get 'typescript-ts-mode apheleia-mode-alist) 'biome)
   (setf (alist-get 'deno-mode apheleia-mode-alist) 'biome)
-  (setf (alist-get 'biome apheleia-formatters) '("biome" "format" "--stdin-file-path" filepath)))
+  (setf (alist-get 'biome apheleia-formatters) '("biome" "format" "--stdin-file-path" filepath "--indent-style=space")))
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
