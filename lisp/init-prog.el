@@ -27,6 +27,7 @@
   ;; Keep eglot from being too eager — helps responsiveness
   (eglot-events-buffer-config '(:size 0))  ; disable events logging
   (eglot-sync-connect nil)                 ; don't block on connect
+  (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)) ; don't use LSP for formatting, we're using Apheleia
   :bind (:map eglot-mode-map
               ;; Refactoring
               ("C-c r r" . eglot-rename)
@@ -69,6 +70,7 @@
 ;; programming-related modes
 (require 'init-prog-bash)
 (require 'init-prog-clojure)
+(require 'init-prog-csharp)
 (require 'init-prog-fennel)
 (require 'init-prog-fsharp)
 (require 'init-prog-nix)
