@@ -5,7 +5,7 @@
 ;;; Code:
 
 (use-package mistty
-  :bind (("C-c s" . mistty)
+  :bind (("C-c S" . mistty)
 
          ;; bind here the shortcuts you'd like the
          ;; shell to handle instead of Emacs.

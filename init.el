@@ -91,6 +91,7 @@
 (require 'init-apheleia)
 (require 'init-auth-source)
 (require 'init-completion)
+(require 'init-dirvish)
 (require 'init-envrc)
 (require 'init-find)
 (require 'init-magit)
