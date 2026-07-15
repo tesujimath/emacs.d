@@ -89,6 +89,7 @@
 (require 'init-actions)
 (require 'init-ai)
 (require 'init-apheleia)
+(require 'init-auth-source)
 (require 'init-completion)
 (require 'init-envrc)
 (require 'init-find)
