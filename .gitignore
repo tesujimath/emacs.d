@@ -9,6 +9,7 @@ elpa
 el-get
 semanticdb
 url
+/custom.el
 ede-projects.el
 .DS_Store
 places

@@ -5,9 +5,7 @@
 ;;; Code:
 
 ;; use host-specific customization
-(setq custom-file (expand-file-name
-                   (format "custom.%s.el" (car (split-string (system-name) "\\.")))
-                   user-emacs-directory))
+(setq custom-file (locate-user-emacs-file "custom.el"))
 (add-hook 'after-init-hook (lambda() (load custom-file :no-error)))
 
 (defvar elpaca-installer-version 0.12)
