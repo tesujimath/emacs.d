@@ -59,8 +59,19 @@
 (setq elpaca-lock-file (expand-file-name "elpaca.lock" user-emacs-directory))
 
 ;; Packages that are built-in but need newer versions from MELPA
-(use-package compat :ensure t)
-(use-package transient :ensure t)
+(use-package compat)
+(use-package transient)
+
+;; And more, these for later eglot:
+(unload-feature 'eldoc t) ; https://github.com/progfolio/elpaca/issues/236
+(defvar global-eldoc-mode nil)
+(use-package eldoc
+  :config
+  (global-eldoc-mode))
+
+(use-package flymake)
+(use-package jsonrpc)
+(use-package project)
 
 ;; utilities we'll use everywhere without waiting
 (use-package dash)

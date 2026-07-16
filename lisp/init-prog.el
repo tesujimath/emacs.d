@@ -20,7 +20,9 @@
           100)
 
 (use-package eglot
-  :ensure nil  ; built-in since Emacs 29
+  ;; we need at least eglot 1.20 for pull diagnostics, for tsgo and roslyn-ls,
+  ;; so until that version is built-in (probably coming in Emacs 31):
+  :ensure (:host github :repo "emacs-mirror/emacs" :branch "master" :files ("lisp/progmodes/eglot.el"))
   :custom
   (eglot-autoshutdown t)
   (eglot-confirm-server-initiated-edits nil)
