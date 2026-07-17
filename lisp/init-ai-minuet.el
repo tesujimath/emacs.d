@@ -29,17 +29,25 @@
   ;; power. Once you have a reliable estimate of your local computing power,
   ;; you should adjust the context window to a larger value.
   (setq minuet-context-window 512)
-  (plist-put minuet-openai-fim-compatible-options :end-point "http://localhost:11434/v1/completions")
+
+  ;; ;; Ollama:
+  ;; (plist-put minuet-openai-fim-compatible-options :end-point "http://localhost:11434/v1/completions")
+  ;; ;; an arbitrary non-null environment variable as placeholder.
+  ;; (plist-put minuet-openai-fim-compatible-options :api-key "TERM")
+  ;; (plist-put minuet-openai-fim-compatible-options :model
+  ;;            ;; haven't decided which of these I prefer!
+  ;;            ;;"codestral:22b"
+  ;;            ;;"deepseek-coder-v2:16b"
+  ;;            "qwen2.5-coder:14b" ;; was what I used with Ollama, for minuet and gptel both
+  ;;            ;; qwen3-coder FIM awaiting https://github.com/ollama/ollama/issues/12387
+  ;;            ;;"qwen3-coder:30b"
+  ;;            )
+
+  ;; oMLX:
+  (plist-put minuet-openai-fim-compatible-options :end-point "http://localhost:8000/v1/completions")
   ;; an arbitrary non-null environment variable as placeholder.
-  (plist-put minuet-openai-fim-compatible-options :api-key "TERM")
-  (plist-put minuet-openai-fim-compatible-options :model
-             ;; haven't decided which of these I prefer!
-             ;;"codestral:22b"
-             ;;"deepseek-coder-v2:16b"
-             "qwen2.5-coder:14b" ;; same model I'm using in gptel
-             ;; qwen3-coder FIM awaiting https://github.com/ollama/ollama/issues/12387
-             ;;"qwen3-coder:30b"
-             )
+  (plist-put minuet-openai-fim-compatible-options :api-key (lambda () (gptel-api-key-from-auth-source "omlx" "apikey")))
+  (plist-put minuet-openai-fim-compatible-options :model "Ornith-1.0-9B-4bit")
 
   (minuet-set-optional-options minuet-openai-fim-compatible-options :max_tokens 256)
   (minuet-set-optional-options minuet-openai-fim-compatible-options :top_p 0.9))
