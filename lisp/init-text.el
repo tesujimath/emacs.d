@@ -22,6 +22,7 @@
 ;; text-oriented modes
 (require 'init-text-beancount)
 (require 'init-text-csv)
+(require 'init-text-json)
 (require 'init-text-markdown)
 (require 'init-text-org)
 

@@ -69,6 +69,8 @@
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
+(use-package treesit-fold)
+
 ;; programming-related modes
 (require 'init-prog-bash)
 (require 'init-prog-clojure)
