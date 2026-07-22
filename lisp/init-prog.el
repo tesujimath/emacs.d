@@ -74,6 +74,7 @@
 (require 'init-prog-clojure)
 (require 'init-prog-csharp)
 (require 'init-prog-fennel)
+(require 'init-prog-fish)
 (require 'init-prog-fsharp)
 (require 'init-prog-nix)
 (require 'init-prog-python)
