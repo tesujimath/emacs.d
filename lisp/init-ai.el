@@ -5,6 +5,7 @@
 ;;; Code:
 
 ;; ai-related modes
+(require 'init-ai-agent-shell)
 (require 'init-ai-gptel)
 (require 'init-ai-minuet)
 
