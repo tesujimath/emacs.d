@@ -38,12 +38,14 @@
                  ))
   (add-to-list 'eglot-server-programs
                '((deno-mode :language-id "typescript") .
-                 ;; multiplexed LSP:
-                 ;;("rass" "deno-biome")
-                 ;; separate LSPs for testing:
                  ;; Alas the deno LSP simply doesn't work, even in 2.9.2 😭
+                 ;; So we have to use .ts extensions on scripts, and typescript-language-server
+                 ;; TODO check back when deno LSP is improved, perhaps when they integrate tsgo support
+                 ;; multiplexed LSP:
+                 ("rass" "tsbiome")
+                 ;; separate LSPs for testing:
                  ;; ("deno" "lsp" "-L" "info")
-                 ("biome" "lsp-proxy")
+                 ;; ("biome" "lsp-proxy")
                  ))
 
   (let ((typescript-workspace-configuration
