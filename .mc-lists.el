@@ -6,6 +6,7 @@
         cycle-spacing
         delete-horizontal-space
         kill-region
+        kill-visual-line
         mark-sexp
         org-beginning-of-line
         org-delete-char
