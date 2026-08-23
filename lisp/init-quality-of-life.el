@@ -38,6 +38,10 @@
   (fill-column 120))
 (setq-default line-spacing 0.1)
 
+;; silence
+(setq ring-bell-function 'ignore)
+(setq visible-bell t)
+
 ;; Better modeline
 (use-package doom-modeline
   :init
