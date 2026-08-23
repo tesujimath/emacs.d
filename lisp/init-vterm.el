@@ -5,7 +5,8 @@
 ;;; Code:
 
 (use-package vterm
-  :ensure nil  ; install via Nix — has native compiled component
+  :if (not (eq system-type 'windows-nt))
+  :ensure nil  ; install via Nix   has native compiled component
   :custom
   (vterm-shell (executable-find "fish"))
   (vterm-buffer-name-string "vterm %s")

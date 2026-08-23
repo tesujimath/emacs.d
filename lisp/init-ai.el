@@ -4,10 +4,11 @@
 
 ;;; Code:
 
-;; ai-related modes
-(require 'init-ai-agent-shell)
-(require 'init-ai-gptel)
-(require 'init-ai-minuet)
+;; ai-related modes, not on Windows
+(unless (eq system-type 'windows-nt)
+  (require 'init-ai-agent-shell)
+  (require 'init-ai-gptel)
+  (require 'init-ai-minuet))
 
 (provide 'init-ai)
 ;;; init-ai.el ends here

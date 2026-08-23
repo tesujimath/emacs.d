@@ -28,11 +28,16 @@
   :custom (which-key-idle-delay 0.5))
 
 ;; Appearance
+(defvar my/default-font
+  (cond ((eq system-type 'darwin) "SF Mono")
+        ((eq system-type 'windows-nt) "Consolas")
+        (t "Monospace")))
+
 (use-package emacs
   :ensure nil
   :config
   (load-theme 'wombat :no-confirm)
-  (set-face-attribute 'default nil :family "SF Mono" :foundry "nil" :slant 'normal :weight 'medium :height 100 :width 'normal)
+  (set-face-attribute 'default nil :family my/default-font :foundry "nil" :slant 'normal :weight 'medium :height 100 :width 'normal)
   (display-time-mode 1)
   :custom
   (fill-column 120))

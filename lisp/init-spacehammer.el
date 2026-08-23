@@ -5,6 +5,7 @@
 ;;; Code:
 
 (use-package spacehammer
+  :if (eq system-type 'darwin)
   :ensure (:host github
                  :repo "agzam/spacehammer"
                  :files ("*.el")))

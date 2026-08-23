@@ -5,6 +5,7 @@
 ;;; Code:
 
 (use-package mistty
+  :if (not (eq system-type 'windows-nt))
   :bind (("C-c S" . mistty)
 
          ;; bind here the shortcuts you'd like the
