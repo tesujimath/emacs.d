@@ -71,6 +71,12 @@
   ;; use open instead of the default which seems to be xdg-open
   (setq dired-guess-shell-alist-user '((".*" "open"))))
 
+;;; Windows tweaks
+(when (eq system-type 'windows-nt)
+  ;; Windows in a VM using RDP-mounted directory doesn't support notify
+  (setq auto-revert-use-notify nil)
+  (global-auto-revert-mode 1))
+
 ;; make the delete key sane
 (delete-selection-mode 1)
 
