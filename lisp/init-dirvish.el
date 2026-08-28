@@ -21,6 +21,7 @@
    '(("h" "~/"                          "Home")
      ("d" "~/Downloads/"                "Downloads")
      ("f" "/ssh:fuseki")                "Fuseki via ssh"))
+  (dirvish-side-width 50)
   :config
   (dirvish-peek-mode)             ; Preview files in minibuffer
   (setq dirvish-peek-key "M-.")
