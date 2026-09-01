@@ -105,6 +105,7 @@
 (require 'init-spacehammer)
 (require 'init-text)
 (require 'init-undo)
+(require 'init-vc)
 (require 'init-vterm)
 
 (provide 'init)
