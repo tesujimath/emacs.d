@@ -16,7 +16,6 @@
   (org-agenda-files (file-expand-wildcards (concat org-directory "/*.org")))
 
   (org-default-notes-file (concat org-directory "/inbox.org"))(org-log-done 'time)
-  (org-hide-emphasis-markers t)
   (org-log-into-drawer t)
   (org-outline-path-complete-in-steps nil)
   (org-refile-targets '((nil :maxlevel . 2) (org-agenda-files :maxlevel . 2)))
@@ -42,6 +41,8 @@
       "* %?\12Entered on %U\12  %i\12  %a")))
 
   :config
+  ;; emphasis for / messes up path names
+  (setopt org-emphasis-alist (assoc-delete-all "/" org-emphasis-alist))
   (require 'org-tempo)
 
   :bind (("C-c a" . org-agenda)
