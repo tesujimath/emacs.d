@@ -5,9 +5,8 @@
 ;;; Code:
 
 (use-package undo-fu
-  :config
-  (global-set-key (kbd "C-_") #'undo-fu-only-undo)
-  (global-set-key (kbd "C-?") #'undo-fu-only-redo))
+  :bind (("C-_" . undo-fu-only-undo)
+         ("C-?" . undo-fu-only-redo)))
 
 (use-package undo-fu-session
   :config (undo-fu-session-global-mode))

@@ -69,7 +69,8 @@
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
-(use-package treesit-fold)
+(use-package treesit-fold
+  :defer t)
 
 ;; programming-related modes
 (require 'init-prog-bash)

@@ -4,17 +4,35 @@
 
 ;;; Code:
 
+;; savehist persists minibuffer history between sessions, which is what lets
+;; vertico and consult float recently used candidates to the top.
+(use-package savehist
+  :ensure nil
+  :init (savehist-mode)
+  :custom
+  (history-length 300)
+  (savehist-additional-variables '(search-ring regexp-search-ring)))
+
 ;; vertico replaces the default minibuffer completion with a vertical list
 (use-package vertico
-  :init (vertico-mode)
+  :init
+  (vertico-mode)
+  ;; embark and consult both invite recursive minibuffers, so make the depth
+  ;; visible when you are in one.
+  (minibuffer-depth-indicate-mode)
   :custom
   (vertico-cycle t)
-  (vertico-count 15))
+  (vertico-count 15)
+  (enable-recursive-minibuffers t)
+  ;; omit commands that don't apply to the current mode from M-x
+  (read-extended-command-predicate #'command-completion-default-include-p))
 
 ;; orderless adds fuzzy/space-separated matching to vertico
 (use-package orderless
   :custom
   (completion-styles '(orderless basic))
+  ;; the built-in per-category styles would otherwise override orderless
+  (completion-category-defaults nil)
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; marginalia adds annotations to vertico candidates
@@ -47,6 +65,8 @@
   (corfu-auto-prefix 3)  ; increased from 2 in favour of eglot
   (corfu-cycle t)
   (corfu-quit-no-match 'separator)
+  ;; TAB indents, and completes once the line is already indented
+  (tab-always-indent 'complete)
   :init (global-corfu-mode))
 
 ;; cape extends corfu's completion sources

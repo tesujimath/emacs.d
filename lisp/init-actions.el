@@ -12,9 +12,15 @@
   :custom
   (prefix-help-command #'embark-prefix-help-command))
 
-(use-package embark-consult)
+;; A bare `use-package' loads eagerly, which pulled in both embark and consult
+;; during startup.  :after is this package's intended recipe.
+(use-package embark-consult
+  :after (embark consult))
 
+;; wgrep's autoloads already put `wgrep-setup' on `grep-setup-hook', so it
+;; loads by itself the first time a grep buffer appears.
 (use-package wgrep
+  :defer t
   :custom (wgrep-auto-save-buffer t))
 
 (provide 'init-actions)

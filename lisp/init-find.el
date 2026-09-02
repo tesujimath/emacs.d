@@ -4,7 +4,8 @@
 
 ;;; Code:
 
-(use-package deadgrep)
+(use-package deadgrep
+  :defer t)
 
 (provide 'init-find)
 ;;; init-find.el ends here

@@ -5,6 +5,7 @@
 ;;; Code:
 
 (use-package gptel
+  :defer t
   :config
   (defvar my/gptel-ollama (gptel-make-ollama "Ollama"
                             :host "localhost:11434"

@@ -4,9 +4,11 @@
 
 ;;; Code:
 
-;; use host-specific customization
+;; use host-specific customization.  Loading it from elpaca-after-init-hook puts
+;; it after every package's :custom defaults, rather than leaving it to the
+;; relative order of two after-init-hook entries.
 (setq custom-file (locate-user-emacs-file "custom.el"))
-(add-hook 'after-init-hook (lambda() (load custom-file :no-error)))
+(add-hook 'elpaca-after-init-hook (lambda () (load custom-file :no-error)))
 
 (defvar elpaca-installer-version 0.12)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
@@ -79,7 +81,7 @@
 (use-package dash)
 
 ;; setup directory structure and load packages
-(defvar user-lisp-dir (expand-file-name "lisp" (file-name-directory load-file-name))
+(defvar user-lisp-dir (expand-file-name "lisp" user-emacs-directory)
   "user lisp directory.")
 (add-to-list 'load-path user-lisp-dir)
 

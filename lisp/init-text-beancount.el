@@ -4,7 +4,9 @@
 
 ;;; Code:
 
+;; beancount's autoloads already register `.beancount' in `auto-mode-alist'.
 (use-package beancount
+  :defer t
   :custom (beancount-number-alignment-column 79))
 
 (with-eval-after-load 'apheleia

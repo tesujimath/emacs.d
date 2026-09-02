@@ -27,6 +27,18 @@
   :init (which-key-mode)
   :custom (which-key-idle-delay 0.5))
 
+;; Session state.  recentf also backs `consult-buffer''s recent-file source.
+(use-package recentf
+  :ensure nil
+  :init (recentf-mode)
+  :custom
+  (recentf-max-saved-items 200)
+  (recentf-exclude '("/elpaca/" "/\\.git/")))
+
+(use-package saveplace
+  :ensure nil
+  :init (save-place-mode))
+
 ;; Appearance
 (defvar my/default-font
   (cond ((eq system-type 'darwin) "SF Mono")

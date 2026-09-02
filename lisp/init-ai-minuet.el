@@ -5,6 +5,7 @@
 ;;; Code:
 
 (use-package minuet
+  :defer t
   :bind
   (("M-i" . #'minuet-show-suggestion)
    ;;("M-y" . #'minuet-complete-with-minibuffer) ;; use minibuffer for completion
@@ -46,7 +47,10 @@
   ;; oMLX:
   (plist-put minuet-openai-fim-compatible-options :end-point "http://localhost:8000/v1/completions")
   ;; an arbitrary non-null environment variable as placeholder.
-  (plist-put minuet-openai-fim-compatible-options :api-key (lambda () (gptel-api-key-from-auth-source "omlx" "apikey")))
+  ;; gptel is deferred and this helper carries no autoload, so pull it in when
+  ;; the key is actually needed.
+  (plist-put minuet-openai-fim-compatible-options :api-key
+             (lambda () (require 'gptel) (gptel-api-key-from-auth-source "omlx" "apikey")))
   (plist-put minuet-openai-fim-compatible-options :model "Ornith-1.0-9B-4bit")
 
   (minuet-set-optional-options minuet-openai-fim-compatible-options :max_tokens 256)
