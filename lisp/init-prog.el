@@ -25,7 +25,7 @@
   :ensure (:host github :repo "emacs-mirror/emacs" :branch "master" :files ("lisp/progmodes/eglot.el"))
   :custom
   (eglot-autoshutdown t)
-  (eglot-confirm-server-initiated-edits nil)
+  (eglot-confirm-server-edits nil)
   ;; Keep eglot from being too eager — helps responsiveness
   (eglot-events-buffer-config '(:size 0))  ; disable events logging
   (eglot-sync-connect nil)                 ; don't block on connect
@@ -39,7 +39,7 @@
               ("C-c r o" . eglot-code-action-organize-imports)
               ("C-c r q" . eglot-code-action-quickfix)
               ("C-c r e" . eglot-code-action-extract)
-              ("C-c r i" . eglot-code-action-inline)
+              ("C-c r I" . eglot-code-action-inline)
               ("C-c r w" . eglot-code-action-rewrite)
               ;; Navigation
               ("C-c r d" . eglot-find-declaration)

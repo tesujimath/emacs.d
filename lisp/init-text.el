@@ -16,8 +16,9 @@
   :bind (("M-$"   . jinx-correct)
          ("C-M-$" . jinx-languages)
          :map jinx-mode-map
-         ("M-n" . jinx-next)
-         ("M-p" . jinx-previous))
+         ;; M-n/M-p are flymake's, and jinx-mode is active in prog buffers too
+         ("M-s n" . jinx-next)
+         ("M-s p" . jinx-previous))
   :custom
   (jinx-languages "en_GB"))
 

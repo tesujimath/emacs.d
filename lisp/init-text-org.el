@@ -8,14 +8,22 @@
 (defun tesujimath/outline-hide-sublevels-2 () "Hide all but L1-2 headings." (interactive) (outline-hide-sublevels 2))
 (defun tesujimath/outline-hide-sublevels-3 () "Hide all but L1-3 headings." (interactive) (outline-hide-sublevels 3))
 
+(defvar tesujimath/org-directory
+  (or (seq-find #'file-directory-p '("~/share/notes" "~/mobile/notes"))
+      "~/share/notes")
+  "Notes directory, which differs between hosts.
+Override in `custom-file' for a host that uses neither default.")
+
 (use-package org
   :ensure nil  ; use built-in, or pin to org ELPA below
   :hook (org-mode . visual-line-mode)
   :custom
-  (org-directory "~/mobile/notes")
-  (org-agenda-files (file-expand-wildcards (concat org-directory "/*.org")))
+  (org-directory tesujimath/org-directory)
+  ;; A directory entry is expanded on demand, so new files need no restart.
+  (org-agenda-files (list tesujimath/org-directory))
 
-  (org-default-notes-file (concat org-directory "/inbox.org"))(org-log-done 'time)
+  (org-default-notes-file (concat org-directory "/inbox.org"))
+  (org-log-done 'time)
   (org-log-into-drawer t)
   (org-outline-path-complete-in-steps nil)
   (org-refile-targets '((nil :maxlevel . 2) (org-agenda-files :maxlevel . 2)))
@@ -37,7 +45,7 @@
       "* TODO %?\12  %i\12  %a")
      ("!" "Ideas" entry (file+headline "" "Ideas")
       "* %?\12Entered on %U\12  %i\12  %a")
-     ("j" "Journal" entry (file+headline "Journal")
+     ("j" "Journal" entry (file+headline "" "Journal")
       "* %?\12Entered on %U\12  %i\12  %a")))
 
   :config

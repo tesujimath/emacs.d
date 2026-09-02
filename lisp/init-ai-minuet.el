@@ -12,8 +12,8 @@
    ;;("C-c m" . #'minuet-configure-provider)
    :map minuet-active-mode-map
    ;; These keymaps activate only when a minuet suggestion is displayed in the current buffer
-   ("M-p" . #'minuet-previous-suggestion) ;; invoke completion or cycle to next completion
-   ("M-n" . #'minuet-next-suggestion) ;; invoke completion or cycle to previous completion
+   ("M-p" . #'minuet-previous-suggestion) ;; invoke completion or cycle to previous completion
+   ("M-n" . #'minuet-next-suggestion) ;; invoke completion or cycle to next completion
    ("M-A" . #'minuet-accept-suggestion) ;; accept whole completion
    ;; Accept the first line of completion, or N lines with a numeric-prefix:
    ;; e.g. C-u 2 M-a will accepts 2 lines of completion.
@@ -51,6 +51,15 @@
 
   (minuet-set-optional-options minuet-openai-fim-compatible-options :max_tokens 256)
   (minuet-set-optional-options minuet-openai-fim-compatible-options :top_p 0.9))
+
+;; M-n/M-p are also wanted by flymake, and precedence between minor-mode maps
+;; follows `minor-mode-map-alist' order, which we don't control under lazy
+;; loading.  `emulation-mode-map-alists' outranks every ordinary minor-mode map,
+;; so minuet wins for exactly as long as a suggestion is on screen, and the keys
+;; fall back to flymake the rest of the time.
+(with-eval-after-load 'minuet
+  (add-to-list 'emulation-mode-map-alists
+               `((minuet-active-mode . ,minuet-active-mode-map))))
 
 (provide 'init-ai-minuet)
 ;;; init-ai-minuet.el ends here

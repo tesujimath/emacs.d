@@ -20,7 +20,7 @@
   (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
    '(("h" "~/"                          "Home")
      ("d" "~/Downloads/"                "Downloads")
-     ("f" "/ssh:fuseki")                "Fuseki via ssh"))
+     ("f" "/ssh:fuseki"                 "Fuseki via ssh")))
   (dirvish-side-width 50)
   :config
   (dirvish-peek-mode)             ; Preview files in minibuffer

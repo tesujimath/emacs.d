@@ -51,7 +51,8 @@
 
 ;; cape extends corfu's completion sources
 (use-package cape
-  :bind ("C-c p" . cape-prefix-map)
+  ;; C-c p belongs to `project-prefix-map', see init-project.el
+  :bind ("C-c P" . cape-prefix-map)
   :init
   (add-to-list 'completion-at-point-functions #'cape-file)
   (add-to-list 'completion-at-point-functions #'cape-dabbrev))
