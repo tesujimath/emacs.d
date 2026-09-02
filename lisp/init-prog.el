@@ -73,6 +73,7 @@
 
 ;; programming-related modes
 (require 'init-prog-bash)
+(require 'init-prog-bicep)
 (require 'init-prog-clojure)
 (require 'init-prog-csharp)
 (require 'init-prog-fennel)
