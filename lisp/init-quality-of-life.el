@@ -13,6 +13,23 @@
                       :weight 'bold))
 
 ;; Whitespace handling
+;;
+;; TODO: resolve.  `whitespace-cleanup' on the global `before-save-hook' cleans
+;; every file we save, not just our own.  Since `whitespace-style' includes
+;; tabs, that untabifies as well as stripping trailing space, which makes
+;; unrelated diffs in other people's repos and is destructive in files where
+;; tabs are significant, eg Makefiles.  It also overlaps with apheleia, which
+;; already formats on save for most languages we use.
+;;
+;; The candidate fix is purcell's whitespace-cleanup-mode: a buffer-local minor
+;; mode which cleans on save only if the buffer was already clean when opened,
+;; judged using our own `whitespace-style', so tab-significant files are never
+;; touched.  It is settable from .dir-locals.el, which is the right home for a
+;; per-repo whitespace policy.  Two things to check first: it tests cleanliness
+;; by copying the whole buffer at mode-enable time, so measure the cost on a
+;; large file before enabling it globally, and it still uses old-style defadvice.
+;; The alternative needing no new package is a buffer-local hook in the modes we
+;; own.
 (setq-default indent-tabs-mode nil)
 (use-package whitespace
   :ensure nil
