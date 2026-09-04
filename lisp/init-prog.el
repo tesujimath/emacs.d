@@ -73,6 +73,16 @@
 (use-package treesit-fold
   :defer t)
 
+;; Structured editing and navigation by syntax node, on top of tree-sitter.
+;; `combobulate-mode' is a no-op in buffers whose language it doesn't support,
+;; so a single prog-mode hook is enough.
+(use-package combobulate
+  :ensure (:host github :repo "mickeynp/combobulate")
+  :custom
+  ;; must be set before combobulate loads, as the keymap is built at load time
+  (combobulate-key-prefix "C-c o")
+  :hook (prog-mode . combobulate-mode))
+
 ;; programming-related modes
 (require 'init-prog-bash)
 (require 'init-prog-bicep)
