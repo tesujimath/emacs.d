@@ -13,7 +13,7 @@
   (setf (alist-get 'ruff apheleia-formatters) '("ruff" "format" "-")))
 
 (with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs '(python-ts-mode . ("pyright-langserver" "--stdio"))))
+  (add-to-list 'eglot-server-programs '(python-ts-mode . ("rass" "pyright-ruff"))))
 
 (provide 'init-prog-python)
 ;;; init-prog-python.el ends here
