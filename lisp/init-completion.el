@@ -43,6 +43,15 @@
   "Consult ripgrep for symbol at point."
   (interactive)
   (consult-ripgrep nil (thing-at-point 'symbol)))
+
+(defun tesujimath/consult-ripgrep-transcripts ()
+  "Search agent-shell transcripts in the current project."
+  (interactive)
+  (consult-ripgrep
+   (expand-file-name ".agent-shell/transcripts/"
+                     (or (when-let* ((p (project-current))) (project-root p))
+                         default-directory))))
+
 (use-package consult
   :bind (("C-s"   . consult-line)
          ("C-x b" . consult-buffer)
