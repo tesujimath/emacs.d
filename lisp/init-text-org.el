@@ -29,6 +29,11 @@ Override in `custom-file' for a host that uses neither default.")
   (org-refile-targets '((nil :maxlevel . 2) (org-agenda-files :maxlevel . 2)))
   (org-refile-use-outline-path 'file)
 
+  ;; Remember the running clock and clock history between sessions.
+  ;; Restored on `org-mode-hook', i.e. when the first Org buffer opens.
+  (org-clock-persist t)
+  (org-clock-persist-query-resume nil)
+
   (org-todo-keywords
    '((sequence "BACKLOG(b!)" "TODO(t)" "IN-PROGRESS(i!)" "|" "DONE(d!/!)"
                "CANCELLED(c@)")
@@ -52,6 +57,7 @@ Override in `custom-file' for a host that uses neither default.")
   ;; emphasis for / messes up path names
   (setopt org-emphasis-alist (assoc-delete-all "/" org-emphasis-alist))
   (require 'org-tempo)
+  (org-clock-persistence-insinuate)
 
   :bind (("C-c a" . org-agenda)
          ("C-c c" . org-capture)
