@@ -63,6 +63,7 @@ Override in `custom-file' for a host that uses neither default.")
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link)
 	 :map org-mode-map
+         ("C-c r s" . consult-org-heading)
          ("C-c 1" . tesujimath/outline-hide-sublevels-1)
          ("C-c 2" . tesujimath/outline-hide-sublevels-2)
          ("C-c 3" . tesujimath/outline-hide-sublevels-3)))
