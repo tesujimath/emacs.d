@@ -9,6 +9,7 @@
   ;; https://github.com/xenodium/agent-shell#anthropic-claude
   (agent-shell-anthropic-authentication (agent-shell-anthropic-make-authentication :login t))
   (agent-shell-cursor-acp-command '("cursor-agent" "acp"))
+  (agent-shell-anthropic-default-session-mode-id "auto")
 
   :bind (:map agent-shell-mode-map
               ("C-c C-f" . agent-shell-prompt-compose)))
