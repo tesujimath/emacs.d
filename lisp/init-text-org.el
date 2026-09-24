@@ -42,9 +42,9 @@ Override in `custom-file' for a host that uses neither default.")
      (sequence "WAITING(w@/!)" "IN-PROGRESS(i!)" "|" "CANCELLED(c@/!)")))
 
   (org-capture-templates
-   '(("L" "Link" entry (file+headline "resources.org" "Unclassified")
+   '(("L" "Link" entry (file+headline "inbox.org" "Unclassified")
       "** TODO %:description\12%:link\12%?")
-     ("p" "Link" entry (file+headline "resources.org" "Unclassified")
+     ("p" "Link" entry (file+headline "inbox.org" "Unclassified")
       "** TODO %:description\12%:link\12\12%i\12%?")
      ("t" "Todo" entry (file+headline "" "Tasks")
       "* TODO %?\12  %i\12  %a")
@@ -57,6 +57,7 @@ Override in `custom-file' for a host that uses neither default.")
   ;; emphasis for / messes up path names
   (setopt org-emphasis-alist (assoc-delete-all "/" org-emphasis-alist))
   (require 'org-tempo)
+  (require 'org-protocol)
   (org-clock-persistence-insinuate)
 
   :bind (("C-c a" . org-agenda)
