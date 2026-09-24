@@ -25,6 +25,8 @@
     (setq exec-path-from-shell-variables
           ;; we need both of these to avoid path reset from nrepl server
           '("PATH" "__NIX_DARWIN_SET_ENVIRONMENT_DONE"
+            ;; for agent-shell:
+            "DATACOM_LLM_GATEWAY_LOCAL_QWEN_APIKEY"
             ;; these from exec-path-from-shell README:
             ;; "SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "NIX_SSL_CERT_FILE" "NIX_PATH"
             ))
