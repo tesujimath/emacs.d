@@ -8,11 +8,9 @@
 
 (use-package jinx
   :ensure nil ; loaded via Nix Home Manager
-  ;; don't use jinx-mode until jinx is picking up an enchant without nuspell,
-  ;; since that crashes on my Datacom Mac if permissions problems anywhere
-  ;;:hook ((text-mode . jinx-mode)
-  ;;       (markdown-mode . jinx-mode)
-  ;;       (org-mode  . jinx-mode))
+  :hook ((text-mode . jinx-mode)
+         (markdown-mode . jinx-mode)
+         (org-mode  . jinx-mode))
   :bind (("M-$"   . jinx-correct)
          ("C-M-$" . jinx-languages)
          :map jinx-mode-map
