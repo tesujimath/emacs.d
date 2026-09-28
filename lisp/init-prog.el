@@ -77,6 +77,17 @@
 (use-package treesit-fold
   :defer t)
 
+(defun tesujimath/combobulate-keymaps-first ()
+  "Move Combobulate's minor-mode keymaps to the front of `minor-mode-map-alist'."
+  (let ((combobulate-maps
+         (seq-filter (lambda (entry)
+                       (string-prefix-p "combobulate-" (symbol-name (car entry))))
+                     minor-mode-map-alist)))
+    (setq minor-mode-map-alist
+          (append combobulate-maps
+                  (seq-remove (lambda (entry) (memq entry combobulate-maps))
+                              minor-mode-map-alist)))))
+
 ;; Structured editing and navigation by syntax node, on top of tree-sitter.
 ;; `combobulate-mode' is a no-op in buffers whose language it doesn't support,
 ;; so a single prog-mode hook is enough.
@@ -85,7 +96,12 @@
   :custom
   ;; must be set before combobulate loads, as the keymap is built at load time
   (combobulate-key-prefix "C-c o")
-  :hook (prog-mode . combobulate-mode))
+  :hook (prog-mode . combobulate-mode)
+  :config
+  ;; Whichever minor mode loads last wins a key clash, and combobulate loads
+  ;; before smartparens, so its C-M-n etc. are shadowed by the paredit bindings.
+  (with-eval-after-load 'smartparens
+    (tesujimath/combobulate-keymaps-first)))
 
 ;; programming-related modes
 (require 'init-prog-bash)
