@@ -25,6 +25,11 @@
     (setq exec-path-from-shell-variables
           ;; we need both of these to avoid path reset from nrepl server
           '("PATH" "__NIX_DARWIN_SET_ENVIRONMENT_DONE"
+            ;; copying the DONE flag stops subshells sourcing set-environment,
+            ;; so anything else it exports must be copied too
+            ;;
+            ;; ensure we pick up the zscaler CA certs:
+            "NIX_SSL_CERT_FILE" "SSL_CERT_FILE" "REQUESTS_CA_BUNDLE"
             ;; for agent-shell:
             "DATACOM_LLM_GATEWAY_LOCAL_QWEN_APIKEY"
             ;; these from exec-path-from-shell README:
