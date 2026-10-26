@@ -30,11 +30,13 @@
   (eglot-events-buffer-config '(:size 0))  ; disable events logging
   ;; (eglot-events-buffer-config '(:size 2000000 :format full))  ; enable events logging
   (eglot-sync-connect nil)                 ; don't block on connect
+  (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)) ; don't use LSP for formatting, we're using Apheleia
+  :config
   ;; Each watch is a kqueue fd, and Emacs on macOS caps out around 1000 fds for
   ;; the whole process.  Eglot's 10000 default is unreachable here: we'd hit the
   ;; fd wall first and take the session down with us.
-  (eglot-max-file-watches 600)
-  (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)) ; don't use LSP for formatting, we're using Apheleia
+  ;; This is a defvar, not a defcustom, so `:custom' would silently not apply.
+  (setq eglot-max-file-watches 600)
   :bind (:map eglot-mode-map
               ;; Refactoring
               ("C-c r r" . eglot-rename)
