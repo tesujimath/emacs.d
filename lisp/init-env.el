@@ -28,6 +28,8 @@
             ;; copying the DONE flag stops subshells sourcing set-environment,
             ;; so anything else it exports must be copied too
             ;;
+            ;; enable setting of explicit shell from Nix:
+            "ESHELL"
             ;; ensure we pick up the zscaler CA certs:
             "NIX_SSL_CERT_FILE" "SSL_CERT_FILE" "REQUESTS_CA_BUNDLE"
             ;; for agent-shell:
