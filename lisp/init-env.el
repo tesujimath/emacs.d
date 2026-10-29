@@ -32,6 +32,8 @@
             "ESHELL"
             ;; ensure we pick up the zscaler CA certs:
             "NIX_SSL_CERT_FILE" "SSL_CERT_FILE" "REQUESTS_CA_BUNDLE"
+            ;; points docker at Colima's socket:
+            "DOCKER_HOST"
             ;; for agent-shell:
             "DATACOM_LLM_GATEWAY_LOCAL_QWEN_APIKEY"
             ;; these from exec-path-from-shell README:

@@ -96,6 +96,7 @@
 (require 'init-auth-source)
 (require 'init-completion)
 (require 'init-dirvish)
+(require 'init-docker)
 (require 'init-envrc)
 (require 'init-find)
 (require 'init-magit)
