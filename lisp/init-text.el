@@ -8,6 +8,7 @@
 
 (use-package jinx
   :ensure nil ; loaded via Nix Home Manager
+  :if (locate-library "jinx") ; absent where there's no Nix, e.g. Windows
   :hook ((text-mode . jinx-mode)
          (markdown-mode . jinx-mode)
          (org-mode  . jinx-mode))
