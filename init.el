@@ -10,6 +10,10 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (add-hook 'elpaca-after-init-hook (lambda () (load custom-file :no-error)))
 
+;; Native Windows Emacs can only run ~30 subprocesses at once, so an unthrottled
+;; bootstrap fails with "Too many open files".
+(defvar elpaca-queue-limit (when (eq system-type 'windows-nt) 10))
+
 (defvar elpaca-installer-version 0.12)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
