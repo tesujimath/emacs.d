@@ -72,6 +72,12 @@
   (fill-column 120))
 (setq-default line-spacing 0.1)
 
+;; Windows doesn't fall back to its emoji/symbol fonts by default, leaving tofu for e.g. ✨
+(when (eq system-type 'windows-nt)
+  (set-fontset-font t 'emoji "Segoe UI Emoji" nil 'prepend)
+  (set-fontset-font t '(#x2600 . #x27BF) "Segoe UI Emoji" nil 'prepend)
+  (set-fontset-font t 'symbol "Segoe UI Symbol" nil 'append))
+
 ;; silence
 (setq ring-bell-function 'ignore)
 
