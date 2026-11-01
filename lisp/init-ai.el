@@ -4,9 +4,10 @@
 
 ;;; Code:
 
-;; ai-related modes, not on Windows
+(require 'init-ai-agent-shell)
+
+;; other ai-related modes, not on Windows
 (unless (eq system-type 'windows-nt)
-  (require 'init-ai-agent-shell)
   (require 'init-ai-gptel)
   (require 'init-ai-minuet))
 
