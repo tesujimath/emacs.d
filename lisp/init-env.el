@@ -42,5 +42,14 @@
     (exec-path-from-shell-initialize))
   )
 
+;; Default to UTF-8 everywhere.  On Windows the language environment otherwise
+;; follows the system codepage (cp1252), so saving a buffer containing
+;; anything outside that prompts for a coding system.
+(set-language-environment "UTF-8")
+(prefer-coding-system 'utf-8-unix)
+;; the Windows clipboard speaks UTF-16, so don't let the above clobber it
+(when (eq system-type 'windows-nt)
+  (setq selection-coding-system 'utf-16le-dos))
+
 (provide 'init-env)
 ;;; init-env.el ends here
