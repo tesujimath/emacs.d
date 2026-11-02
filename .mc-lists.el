@@ -12,6 +12,7 @@
         org-beginning-of-line
         org-delete-char
         org-end-of-line
+        org-kill-line
         org-self-insert-command
         org-shiftmetaleft
         search-forward
@@ -29,6 +30,7 @@
 (setq mc/cmds-to-run-once
       '(
         consult-buffer
+        consult-line
         describe-key
         end-of-buffer
         magit-status
