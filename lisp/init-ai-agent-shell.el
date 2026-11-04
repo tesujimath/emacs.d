@@ -17,7 +17,34 @@
   ((agent-shell-mode-hook . agent-recall-track-sessions))
 
   :bind (:map agent-shell-mode-map
-              ("C-c C-f" . agent-shell-prompt-compose)))
+              ("C-c C-f" . agent-shell-prompt-compose))
+
+  :config
+  (add-to-list 'agent-shell-agent-configs #'tesujimath/agent-shell-dirge-make-agent-config t))
+
+(defvar tesujimath/agent-shell-dirge-acp-command '("dirge" "--acp")
+  "Command and parameters for the dirge ACP client.")
+
+(defun tesujimath/agent-shell-dirge-make-agent-config ()
+  "Create a dirge coding agent configuration."
+  (agent-shell-make-agent-config
+   :identifier 'dirge
+   :mode-line-name "Dirge"
+   :buffer-name "Dirge"
+   :shell-prompt "Dirge> "
+   :shell-prompt-regexp "Dirge> "
+   :client-maker (lambda (buffer)
+                   (agent-shell--make-acp-client
+                    :command (car tesujimath/agent-shell-dirge-acp-command)
+                    :command-params (cdr tesujimath/agent-shell-dirge-acp-command)
+                    :context-buffer buffer))
+   :install-instructions "Install dirge and make sure it is on `exec-path'."))
+
+(defun tesujimath/agent-shell-dirge-start-agent ()
+  "Start an interactive dirge agent shell."
+  (interactive)
+  (agent-shell--dwim :config (tesujimath/agent-shell-dirge-make-agent-config)
+                     :new-shell t))
 
 (use-package agent-recall
   :config
